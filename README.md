@@ -3,7 +3,7 @@
 ====
 BlackBerry Android Device Kernel Source Code
 
-This repository contains the kernel source code found
+This repository contains kernel source code found
 in released BlackBerry Android device software images.
 
 To find the relevant source code for your device and software
