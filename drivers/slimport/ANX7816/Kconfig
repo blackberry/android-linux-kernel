@@ -1,0 +1,8 @@
+config SLIMPORT_COLORADO3
+	depends on SLIMPORT
+	tristate "Analogix Slimport transmitter COLORADO3 support"
+	help
+        	Slimport Transmitter is a HD video transmitter chip 
+		over micro-USB connector for smartphone device.
+
+       
