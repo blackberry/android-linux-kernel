@@ -1,0 +1,12 @@
+config SLIMPORT_ANX7808
+	depends on SLIMPORT
+	tristate "Analogix Slimport transmitter ANX7808 support"
+	help
+	  Slimport Transmitter is a HD video transmitter chip
+	  over micro-USB connector for smartphone device.
+config SLIMPORT_FAST_CHARGE
+	bool "enable fast charge from Slimport accessary"
+	depends on 	SLIMPORT_ANX7808
+	help
+		The maximum charge current can be up to 1A via Slimport accessay,
+		 if this feature is enabled.
