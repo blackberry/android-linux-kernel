@@ -1,0 +1,22 @@
+
+menu "Broadcom Bluetooth device drivers"
+	depends on BT
+
+config BCM_BLUESLEEP
+	tristate "Broadcom MSM Bluesleep driver"
+	depends on BT && SERIAL_MSM_HS
+	default n
+	help
+	  Bluetooth Broadcom MSM bluesleep driver.
+	  This driver provides support for Broadcom sleep.
+
+config BCM_BT_RFKILL
+	tristate "Broadcom RFKILL driver"
+	depends on BT && SERIAL_MSM_HS && BCM_BLUESLEEP
+	default n
+	help
+	  Bluetooth Broadcom RFKILL/enable driver.
+	  This driver provides support for disabling Broadcom Bluetooth
+          functionlity.
+
+endmenu

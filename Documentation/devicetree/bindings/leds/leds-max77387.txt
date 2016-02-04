@@ -1,0 +1,24 @@
+Binding for flash LEDs connected to Maxim MAX77387.
+
+Maxim MAX77387 flash LED driver is used to provide camera flash and
+torch capability for up to two LEDS. MAX77387 LED is connected
+through I2C.
+
+Required properties:
+ - compatible		: should be compatible = "maxim,max77387"
+ - reg			: 7 bit i2c slave address of the device
+ - vdd-supply		: Power supply needed to power up the device
+ - flash-type		: should be flash-type ="MAX77387";
+ - max-current		: Maximum allowed flash current in milliamps
+ - default-current	: Default flash current in milliamps
+
+Example:
+
+	max77387_flash@4A {
+		compatible = "maxim,max77387";
+		reg = <0x4A>;
+		vdd-supply = "pm8994_l30";
+		flash-type = "MAX77387";
+		max-current = <2000>;
+		default-current = <2000>;
+	};
