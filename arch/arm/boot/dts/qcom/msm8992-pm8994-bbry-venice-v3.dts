@@ -1,0 +1,88 @@
+/* Copyright (C) 2015 BlackBerry Limited. All rights reserved.
+ * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/dts-v1/;
+
+#include "msm8992-pm8994-bbry-venice.dtsi"
+#include "msm8992-pm8994-bbry-venice-pinmux-v3.dtsi"
+
+/ {
+	model = "MSM 8992 VENICE V3";
+	qcom,board-id = <0xf3392901 0x0030100>,
+			<0xf33929ac 0x0030100>,
+			<0xf33929b2 0x0030100>,
+			<0xf3392965 0x0030100>,
+			<0xf339299a 0x0030100>,
+			<0xf33929bd 0x0030100>;
+
+	hwfeatures {
+		sensors {
+			orient {
+				mag = "-x,y,-z";
+				accel = "y,-x,z";
+				gyro = "y,-x,z";
+			};
+		};
+		pm {
+			sleep_disabled = "1";
+		};
+		mechanical {
+			rev = "M1";
+		};
+	};
+
+};
+
+&soc {
+	gpio_keys {
+		compatible = "gpio-keys";
+		input-name = "gpio-keys";
+		slide_closed {
+			label = "slide_closed";
+			gpios = <&msm_gpio 74  0x0>;
+			linux,input-type = <5>;
+			linux,code = <0xa>;
+			gpio-key,wakeup;
+			debounce-interval = <10>;
+		};
+	};
+};
+
+&soc {
+	wlan_cfg {
+		compatible = "android,bcmdhd_wlan";
+		config = "/etc/wifi/cfg_venice.ini";
+		/* interrupt source is either "pme_l" or "gpio0" */
+		intr_src = "pme_l";
+	};
+};
+
+&soc {
+	i2c_12: i2c@f9968000 {
+		stmpe_keypad@40 {
+			/delete-property/ st,reset_det_gpio;
+			/delete-property/ st,keypad-rst-int;
+		};
+	};
+
+	i2c_1: i2c@f9923000 {
+		synaptics_dsx_i2c_keypad@20 {
+			number-of-slider-hall-sensors = <1>;
+		};
+	};
+	i2c_2: i2c@f9924000 {
+		synaptics_dsx_i2c_display@67 {
+			number-of-slider-hall-sensors = <1>;
+		};
+	};
+};

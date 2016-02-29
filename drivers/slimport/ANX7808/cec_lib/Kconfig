@@ -1,0 +1,5 @@
+config SLIMPORT_CEC
+	bool "enable CEC feature via Slimport"
+	depends on 	SLIMPORT_ANX7808
+	help
+		Consumer Electronic Control feature is enabled.
