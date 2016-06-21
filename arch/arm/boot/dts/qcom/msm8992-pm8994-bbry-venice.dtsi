@@ -1,0 +1,123 @@
+/* Copyright (C) 2015 BlackBerry Limited. All rights reserved.
+ * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+ #include "msm8992-pm8994-bbry-common.dtsi"
+
+ / {
+	compatible = "qcom,msm8992-venice", "qcom,msm8992";
+
+	/* Attributes must be a string.
+	 * Attributes name are limited to 31B.
+	 * We append ro.hwf to each attributes and add a .
+	 * for delimiter between each level of attributes.
+	 *
+	 * So the follwing entry :
+	 * hwfeatures {
+	 *    test1 {
+	 *	test2 = "bla";
+	 *    }
+	 * }
+	 *
+	 * Will translate into an attribute name ro.hwf.test1.test2
+	 */
+	hwfeatures {
+		compatible = "hwfeatures";
+		keypadtype = "4 4row";
+		lcd_density = "560";
+		slider = "yes";
+		/*
+		 * Platform dependent NFC properties
+		 * Common properties with same property names are overrided by platform
+		 * dependent properties
+		 */
+		nfc {
+			tuning_config = "venice";
+			allow_signed_fw = "yes";
+		};
+		wlan {
+			card-type = "11a 11b 11g 11n 11ac";
+			chipset = "bcm4356";
+			supported-bands = "2Ghz 5Ghz";
+			vendor = "bcm";
+		};
+		led {
+			/*
+			 * LED config
+			 * Specify desired colour state and desired R/G/B PWM intensities
+			 * Colour states:
+			 *   Red   = 1
+			 *   Green = 2
+			 *   Blue  = 4
+			 * Mixed colour states:
+			 *   Cyan           = Green/Blue     = 2|4   = 6
+			 *   Magenta        = Red/Blue       = 1|4   = 5
+			 *   Yellow (Amber) = Red/Green      = 1|2   = 3
+			 *   White (All)    = Red/Green/Blue = 1|2|4 = 7
+			 * RGB values range from 0 to 0xFF
+			 * Output Colour  Red Register Value  Green Register Value  Blue Register Value
+			 */
+			conf {
+				pls0 {
+					1 = "160 0 0";
+					2 = "0 60 0";
+					3 = "35 35 0";
+					4 = "0 0 200";
+					5 = "85 0 35";
+					6 = "0 50 50";
+					7 = "255 255 255";
+				};
+			};
+		};
+	};
+};
+
+&soc {
+	i2c_1: i2c@f9923000 {
+		synaptics_dsx_i2c_keypad@20 {
+			synaptics,product-id-major = "61516";
+			disable-in-holster;
+			disable-in-closed-slider;
+			number-of-slider-hall-sensors = <2>;
+		};
+	};
+	i2c_2: i2c@f9924000 {
+		synaptics_dsx_i2c_display@20 {
+			synaptics,product-id-major = "60253";
+		};
+		synaptics_dsx_i2c_display@67 {
+			disable-while-sliding;
+			enable-touch-cancel;
+			enable-edge-touches;
+			number-of-slider-hall-sensors = <2>;
+			tap-status-addr = <0x450>;
+			position-buffer-addr = <0x400>;
+		};
+	};
+};
+
+&spmi_bus {
+	qcom,pmi8994@3 {
+		qcom,leds@d800 {
+			linux,name = "kpd-backlight";
+			qcom,fs-curr-ua = <5000>;
+			oem,max-pwms = <1800 1800 1800 1800>;
+		};
+	};
+};
+
+&usb3 {
+	vbus_dwc3-supply = <&usb_otg_switch>;
+	dwc3@f9200000 {
+		maximum-speed = "high-speed";
+	};
+};
