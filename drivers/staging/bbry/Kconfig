@@ -1,0 +1,50 @@
+config BBRY_HWFEATURES
+	bool "Add sysfs entry from device tree hwfeature attribute"
+	depends on BBRY
+	default n
+	---help---
+	help
+	  If unsure, say N.
+
+config BBRY_PERSIST_RESET_V2
+	bool "Persist memory region for reset logs - version 2"
+	select PSTORE
+	select PSTORE_RAM
+	select PSTORE_CONSOLE
+	depends on BBRY
+	default n
+	---help---
+	help
+	  If unsure, say N.
+
+config BBRY_MFG
+	bool "For code only required on manufacturing image"
+	depends on BBRY
+	default n
+	---help---
+	help
+	  If unsure, say N.
+
+config BBRY_DEBUG
+	bool "For code only required on debug images (eng and userdebug for now) "
+	depends on BBRY
+	default n
+	---help---
+	help
+	  If unsure, say N.
+
+config BBRY_BSI
+	bool "Export BSI binary blob to sysfs (primarily for mfg) "
+	depends on BBRY
+	default n
+	---help---
+	help
+	  If unsure, say N.
+
+config BBRY_DDT
+	bool "Compile DDT feature in the kernel"
+	depends on BBRY
+	default n
+	---help---
+	help
+	  If unsure, say N.

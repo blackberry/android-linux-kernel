@@ -1,0 +1,45 @@
+/* Copyright (C) 2015 BlackBerry Limited. All rights reserved.
+ * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&soc {
+	/* Hall sensors */
+	hall {
+		compatible = "hall";
+		input-name = "hall";
+		smart-flip-debounce = <100>;
+		closed_sensor {
+			label = "closed_sensor";
+			gpios = <&msm_gpio 74  0x0>;
+			linux,input-type = <5>;
+			linux,code = <0xa>;
+			gpio-key,wakeup;
+			debounce-interval = <10>;
+		};
+		mid_sensor {
+			label = "mid_sensor";
+			gpios = <&msm_gpio 111  0x0>;
+			linux,input-type = <5>;
+			linux,code = <0x14>;
+			gpio-key,wakeup;
+			debounce-interval = <10>;
+		};
+		open_sensor {
+			label = "open_sensor";
+			gpios = <&msm_gpio 95  0x0>;
+			linux,input-type = <5>;
+			linux,code = <0x0>;
+			gpio-key,wakeup;
+			debounce-interval = <10>;
+		};
+	};
+};

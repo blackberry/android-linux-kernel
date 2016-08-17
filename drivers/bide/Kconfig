@@ -1,0 +1,7 @@
+config BBRY_BIDE
+	tristate "BlackBerry Intrusion Detection Engine Driver"
+	depends on BBRY && SECURITY
+	default n
+	help
+	  This is the BlackBerry Intrusion Deteciton Engine.
+	  This should be part of AOSP. If unsure, say N.
