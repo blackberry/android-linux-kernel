@@ -1,0 +1,120 @@
+/*
+ * Copyright (c) 2015, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&mdss_mdp {
+	qcom,mdss-pref-prim-intf = "dsi";
+};
+
+&dsi_dual_nt35597_video {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_hfp";
+};
+
+&dsi_dual_nt35597_cmd {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,partial-update-enabled;
+	qcom,panel-roi-alignment = <720 128 720 128 720 128>;
+};
+
+&dsi_nt35597_dsc_video {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-dsi-mode-sel-gpio-state = "dsc_mode";
+	qcom,mdss-dsi-pan-enable-dynamic-fps;
+	qcom,mdss-dsi-pan-fps-update = "dfps_immediate_porch_mode_hfp";
+};
+
+&dsi_nt35597_dsc_cmd {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+	qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
+	qcom,mdss-dsi-bl-min-level = <1>;
+	qcom,mdss-dsi-bl-max-level = <4095>;
+	qcom,mdss-dsi-mode-sel-gpio-state = "dsc_mode";
+};
+
+/* [PLATFORM]-Mod-BEGIN by TCTCD-Jinlin.Hu, FR-803509, 2015/10/27, add pmi8952 amoled power supply*/
+&dsi_dual_s6e3ha3_amoled_pmic_cmd {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply_with_pmi8952>;
+};
+/* [PLATFORM]-Mod-END by TCTCD-Jinlin.Hu, 2015/10/27*/
+
+/* [PLATFORM]-Mod-BEGIN by TCTNB.CY, FR-526579, 2015/9/10, add driver of amoled*/
+&dsi_dual_s6e3ha3_amoled_cmd {
+	qcom,panel-supply-entries = <&dsi_panel_pwr_supply>;
+};
+
+&pmx_mdss {
+	qcom,num-grp-pins = <2>;
+	qcom,pins = <&gp 25>, <&gp 110>;
+};
+
+&pmx_mdss_te {
+	qcom,num-grp-pins = <1>;
+	qcom,pins = <&gp 24>;
+};
+
+&mdss_dsi0 {
+	pinctrl-names = "mdss_default", "mdss_sleep";
+	pinctrl-0 = <&mdss_dsi_active &mdss_te_active &err_flag_active>;
+	pinctrl-1 = <&mdss_dsi_suspend &mdss_te_suspend &err_flag_suspend>;
+	qcom,dsi-pref-prim-pan = <&dsi_dual_s6e3ha3_amoled_cmd>;
+
+	qcom,platform-reset-gpio = <&msm_gpio 25 0>;
+	qcom,platform-te-gpio = <&msm_gpio 24 0>;
+//	qcom,platform-bklight-en-gpio = <&msm_gpio 66 0>;
+//	qcom,panel-mode-gpio = <&msm_gpio 107 0>;
+/* [PLATFORM]-Mod-BEGIN by TCTCD-Jinlin.Hu, FR-803509, 2015/10/27, configure mpp3 pin for pmi8952 amoled power supply*/
+	qcom,pmi8952-mpp3-gpio = <&pmi8950_mpps 3 0>;
+	qcom,board-id-gpio = <&msm_gpio 27 0>;
+/* [PLATFORM]-Mod-END by TCTCD-Jinlin, 2015/10/27*/
+	qcom,err-flag-gpio = <&msm_gpio 67 0>;
+};
+
+&mdss_dsi1 {
+	pinctrl-names = "mdss_default", "mdss_sleep";
+	pinctrl-0 = <&mdss_dsi_active &mdss_te_active &err_flag_active>;
+	pinctrl-1 = <&mdss_dsi_suspend &mdss_te_suspend &err_flag_suspend>;
+	qcom,dsi-pref-prim-pan = <&dsi_dual_s6e3ha3_amoled_cmd>;
+
+	qcom,platform-reset-gpio = <&msm_gpio 25 0>;
+	qcom,platform-te-gpio = <&msm_gpio 24 0>;
+//	qcom,platform-bklight-en-gpio = <&msm_gpio 66 0>;
+//	qcom,panel-mode-gpio = <&msm_gpio 107 0>;
+/* [PLATFORM]-Mod-BEGIN by TCTCD-Jinlin.HU, FR-803509, 2015/10/27, configure mpp3 pin for pmi8952 amoled power supply*/
+	qcom,pmi8952-mpp3-gpio = <&pmi8950_mpps 3 0>;
+	qcom,board-id-gpio = <&msm_gpio 27 0>;
+/* [PLATFORM]-Mod-END by TCTCD-Jinlin.Hu, 2015/10/27*/
+	qcom,err-flag-gpio = <&msm_gpio 67 0>;
+};
+/* [PLATFORM]-Mod-END by TCTNB.CY, 2015/9/10*/
+
+&labibb {
+	status = "ok";
+/* [PLATFORM]-Mod-BEGIN by TCTNB.CY, task-1158877, 2015/12/14, modify for amoled control type */
+        qpnp,qpnp-labibb-mode = "amoled";
+        qpnp,swire-control;
+/* [PLATFORM]-Mod-END by TCTNB.CY, 2015/10/20*/
+};
+
+&ibb_regulator {
+	qcom,qpnp-ibb-discharge-resistor = <32>;
+};

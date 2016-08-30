@@ -1,0 +1,207 @@
+/* Copyright (C) 2016 Tcl Corporation Limited */
+/* Copyright (c) 2013-2015, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&mdss_mdp {
+	dsi_vm5296_1080_vid: qcom,mdss_dsi_vm5296_1080p_video {
+		qcom,mdss-dsi-panel-name = "vm5296 1080p video mode dsi panel";
+		qcom,mdss-dsi-panel-type = "dsi_video_mode";
+		qcom,mdss-dsi-panel-framerate = <60>;
+		qcom,mdss-dsi-virtual-channel-id = <0>;
+		qcom,mdss-dsi-stream = <0>;
+		qcom,mdss-dsi-panel-width = <1080>;
+		qcom,mdss-dsi-panel-height = <1920>;
+		qcom,mdss-dsi-h-front-porch = <100>;
+		qcom,mdss-dsi-h-back-porch = <64>;
+		qcom,mdss-dsi-h-pulse-width = <4>;
+		qcom,mdss-dsi-h-sync-skew = <0>;
+		qcom,mdss-dsi-v-front-porch = <8>;
+		qcom,mdss-dsi-v-back-porch = <9>;
+		qcom,mdss-dsi-v-pulse-width = <1>;
+		qcom,mdss-dsi-h-left-border = <0>;
+		qcom,mdss-dsi-h-right-border = <0>;
+		qcom,mdss-dsi-v-top-border = <0>;
+		qcom,mdss-dsi-v-bottom-border = <0>;
+		qcom,mdss-dsi-bpp = <24>;
+		qcom,mdss-dsi-underflow-color = <0xff>;
+		qcom,mdss-dsi-border-color = <0>;
+		qcom,mdss-dsi-on-command = [
+		29 01 00 00 00 00 04
+				B9 FF 52 96
+		29 01 00 00 00 00 0C
+				B1 02 04 72 92
+				01 32 33 51 51
+				57 4D
+		29 01 00 00 00 00 0C
+				B2 00 04 80 B4
+				07 06 5A 11 10
+				00 00
+		29 01 00 00 00 00 31
+				B4 00 FF A0 12
+				03 38 0E AD 05
+				36 00 00 09 1B
+				00 1A 02 08 0B
+				22 33 01 00 00
+				FF 01 A0 10 03
+				38 02 AA 05 36
+				00 00 09 0B 00
+				1B 02 0B 0D 01
+				00 00 FF 00
+		29 01 00 00 00 00 03
+				B6 8A 8A
+		29 01 00 00 00 00 02
+				CC 0A
+		29 01 00 00 00 00 07
+				C7 00 08 00 00
+				00 24
+		29 01 00 00 00 00 2D
+				C1 01 00 00 06
+				0B 10 14 18 1B
+				1F 2A 32 3F 49
+				53 5B 63 6B 6C
+				74 7D 88 94 A1
+				B1 BD CC CF D4
+				D8 DE E5 EB F7
+				FF 24 17 46 C6
+				8B 4B 8C B3 40
+		29 01 00 00 00 00 02
+				BD 01
+		29 01 00 00 00 00 2C
+				C1 00 00 06 0B
+				10 14 18 1B 1F
+				2A 32 3F 49 53
+				5B 63 6B 6C 74
+				7D 88 94 A1 B1
+				BD CC CF D4 D8
+				DE E5 EB F7 FF
+				24 17 46 C6 8B
+				4B 8C B3 40
+		29 01 00 00 00 00 02
+				BD 02
+		29 01 00 00 00 00 2C
+				C1 00 00 06 0B
+				10 14 18 1B 1F
+				2A 32 3F 49 53
+				5B 63 6B 6C 74
+				7D 88 94 A1 B1
+				BD CC CF D4 D8
+				DE E5 EB F7 FF
+				24 17 46 C6 8B
+				4B 8C B3 40
+		29 01 00 00 00 00 02
+				BD 03
+		29 01 00 00 00 00 2C
+				C1 00 01 06 0B
+				10 13 18 1B 1F
+				28 30 3D 4A 54
+				5B 62 6B 6C 74
+				7D 88 94 A1 B1
+				BD CC CF D4 D8
+				DE E5 EB F7 FF
+				24 17 46 C6 8B
+				4B 8C B3 40
+		29 01 00 00 00 00 02
+				BD 00
+		29 01 00 00 00 00 14
+				D1 56 4B 07 9A
+				54 6B 27 98 04
+				04 08 04 04 08
+				80 FF 00 00 00
+				29 01 00 00 00 00 02
+				D2 88
+		29 01 00 00 00 00 28
+				D3 30 00 03 03
+				00 00 04 00 32
+				10 06 00 06 32
+				13 C0 00 00 32
+				10 08 00 00 30
+				00 07 07 03 00
+				00 00 27 07 40
+				00 00 00 00 10
+		29 01 00 00 00 00 25
+				D5 20 20 19 19
+				18 18 19 19 03
+				02 01 00 18 18
+				18 18 18 18 18
+				18 18 18 18 18
+				18 18 2F 2F 30
+				30 31 31 35 35
+				18 18
+		29 01 00 00 00 00 25
+				D6 20 20 18 18
+				19 19 19 19 00
+				01 02 03 98 98
+				98 98 98 98 98
+				98 98 98 98 98
+				98 98 2F 2F 30
+				30 31 31 35 35
+				98 98
+		29 01 00 00 00 00 15
+				D8 AC 20 00 2A
+				80 AC 20 00 2A
+				80 A8 20 00 2A
+				80 A8 20 00 2A
+				80
+		29 01 00 00 01 00 02
+				BD 01
+				29 01 00 00 00 00 0B
+				D8 00 00 00 00
+				00 00 00 00 00
+				00
+		29 01 00 00 01 00 02
+				BD 02
+		29 01 00 00 00 00 0B
+				D8 FC 30 00 3F
+				C0 FC 30 00 3F
+				C0
+		29 01 00 00 01 00 02 BD 00
+		29 01 00 00 78 00 02 11 00
+		29 01 00 00 0A 00 02 29 00];
+		qcom,mdss-dsi-off-command = [05 01 00 00 32 00 02 28 00
+					05 01 00 00 78 00 02 10 00];
+		qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+		qcom,mdss-dsi-off-command-state = "dsi_lp_mode";
+		qcom,mdss-dsi-traffic-mode = "burst_mode";
+		qcom,mdss-dsi-bllp-eof-power-mode;
+		qcom,mdss-dsi-bllp-power-mode;
+		qcom,mdss-dsi-lane-0-state;
+		qcom,mdss-dsi-lane-1-state;
+		qcom,mdss-dsi-lane-2-state;
+		qcom,mdss-dsi-lane-3-state;
+		qcom,mdss-dsi-panel-timings =
+			[E7 36 24 00 66 6A 2A 3A 2D 03 04 00];
+		qcom,mdss-dsi-t-clk-post = <0x03>;
+		qcom,mdss-dsi-t-clk-pre = <0x2B>;
+		/*
+		qcom,esd-check-enabled;
+		qcom,mdss-dsi-panel-status-check-mode = "reg_read";
+		qcom,mdss-dsi-panel-status-command = [06 01 00 01 05 00 02 09 00];
+		qcom,mdss-dsi-panel-status-command-state = "dsi_lp_mode";
+		qcom,mdss-dsi-panel-status-read-length = <3>;
+		qcom,mdss-dsi-panel-status-value = <0xe0 0x73 0x04>;
+		*/
+		qcom,mdss-dsi-bl-min-level = <1>;
+		qcom,mdss-dsi-bl-max-level = <4095>;
+		//qcom,mdss-dsi-hfp-power-mode;
+		qcom,mdss-dsi-lp11-init;
+		qcom,mdss-dsi-init-delay-us = <50000>;
+		qcom,mdss-dsi-dma-trigger = "trigger_sw";
+		qcom,mdss-dsi-mdp-trigger = "none";
+		qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
+		qcom,mdss-dsi-reset-sequence = <1 5>, <0 5>, <1 5>;//TCT-SH jhyu fix 2168016  05-18-2016
+		qcom,mdss-dsi-post-init-delay = <1>;
+		qcom,mdss-pan-physical-width-dimension = <65>;
+		qcom,mdss-pan-physical-height-dimension = <115>;
+	};
+};
+
+
