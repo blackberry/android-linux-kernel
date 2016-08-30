@@ -1,0 +1,301 @@
+/*
+ * Copyright (c) 2015, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+&soc {
+	led_flash0: qcom,camera-flash {
+		cell-index = <0>;
+		compatible = "qcom,camera-flash";
+		qcom,flash-type = <1>;
+		qcom,flash-source = <&pmi8950_flash0 &pmi8950_flash1>;
+		qcom,torch-source = <&pmi8950_torch0 &pmi8950_torch1>;
+		qcom,switch-source = <&pmi8950_switch>;
+	};
+	/*xiaoming.hu@tcl.com for front led*/
+	led_flash1: qcom,camera-flash-front {
+		cell-index = <1>;
+		compatible = "qcom,camera-flash";
+		qcom,flash-type = <1>;
+		qcom,flash-source = <&front_flash_led>;
+		qcom,torch-source = <&front_torch_led>;
+	};
+
+};
+
+&cci {
+
+	actuator0: qcom,actuator@0 {
+		cell-index = <0>;
+		reg = <0x0>;
+		compatible = "qcom,actuator";
+		qcom,cci-master = <0>;
+		cam_vaf-supply = <&pm8950_l17>;
+		qcom,cam-vreg-name = "cam_vaf";
+		qcom,cam-vreg-min-voltage = <2850000>;
+		qcom,cam-vreg-max-voltage = <2850000>;
+		qcom,cam-vreg-op-mode = <80000>;
+	};
+
+	actuator1: qcom,actuator@1 {
+		cell-index = <1>;
+		reg = <0x1>;
+		compatible = "qcom,actuator";
+		qcom,cci-master = <0>;
+		cam_vaf-supply = <&pm8950_l17>;
+		qcom,cam-vreg-name = "cam_vaf";
+		qcom,cam-vreg-min-voltage = <2850000>;
+		qcom,cam-vreg-max-voltage = <2850000>;
+		qcom,cam-vreg-op-mode = <80000>;
+	};
+/*xiaoming.hu@tcl.com  s5k3m2 pdaf idol455 eeprom begin*/
+	eeprom0: qcom,eeprom@A0 {
+		cell-index = <0>;
+		reg = <0xA0>;
+		qcom,eeprom-name = "sunny_s5k3m2_pdaf";
+		compatible = "qcom,eeprom";
+		qcom,slave-addr = <0xA0>;
+		qcom,cci-master = <0>;
+//		qcom,num-blocks = <5>;
+
+/*0x0:module_eeprom_flag, 0x09~0x014:awb, 0x0015:checksum*/
+//		qcom,page0 = <0 0 0 0 0 0>;
+//		qcom,poll0 = <0 0 0 0 0 0>;
+//		qcom,mem0 = <22 0x0000 2 0 1 0>;
+/*0x016:lsc_flag, 0x017~0x06FE:lsc, 0x06FF:checksum*/
+//		qcom,page1 = <0 0 0 0 0 0>;
+//		qcom,poll1 = <0 0 0 0 0 0>;
+//		qcom,mem1 = <1770 0x0016 2 0 1 0>;
+/*0x0700:af_flag, 0x0701~0x0706:af, 0x0707:checksum*/
+//		qcom,page2 = <0 0 0 0 0 0>;
+//		qcom,poll2 = <0 0 0 0 0 0>;
+//		qcom,mem2 = <8 0x0700 2 0 1 0>;
+
+/*0x0708:pdaf_flag, 0x0709~0x0706:pdaf, 0x0A89:checksum*/
+//                qcom,page3 = <0 0 0 0 0 0>;
+//		qcom,poll3 = <0 0 0 0 0 0>;
+//		qcom,mem3 = <898 0x0708 2 0 1 0>;
+
+/*0x0B10:pdaf_PD_flag, 0x0B11~0x0B12:pdaf_PD, 0x0B13:checksum*/
+//                qcom,page4 = <0 0 0 0 0 0>;
+//		qcom,poll4 = <0 0 0 0 0 0>;
+//		qcom,mem4 = <4 0x0B10 2 0 1 0>;
+/*power up*/
+/*for new pdaf calibration module compatible begin by xiaoming.hu@tcl.com*/
+		qcom,num-blocks = <1>;
+		qcom,page0 = <0 0 0 0 0 0>;
+		qcom,poll0 = <0 0 0 0 0 0>;
+		qcom,mem0 = <0xb24 0x0000 2 0 1 0>;
+/*for new pdaf calibration module compatible end by xiaoming.hu@tcl.com*/		
+		cam_vdig-supply = <&pm8950_l23>;
+		cam_vana-supply = <&pm8950_l22>;
+		cam_vio-supply = <&pm8950_l6>;
+		cam_vaf-supply = <&pm8950_l17>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vio", "cam_vana",
+							"cam_vaf";
+/*modified by xiaoming.hu@tcl.com for 3m2 spec need max 1.05v*/
+		qcom,cam-vreg-min-voltage = <1050000 0 2800000 2850000>;
+		qcom,cam-vreg-max-voltage = <1050000 0 2800000 2850000>;
+		qcom,cam-vreg-op-mode = <200000 0 80000 100000>;
+		pinctrl-names = "cam_default", "cam_suspend";
+		pinctrl-0 = <&cam_sensor_mclk0_default
+				&cam_sensor_rear_default>;
+		pinctrl-1 = <&cam_sensor_mclk0_sleep &cam_sensor_rear_sleep>;
+		gpios = <&msm_gpio 26 0>,
+			<&msm_gpio 36 0>,
+			<&msm_gpio 35 0>;
+		qcom,gpio-reset = <1>;
+		qcom,gpio-standby = <2>;
+		qcom,gpio-req-tbl-num = <0 1 2>;
+		qcom,gpio-req-tbl-flags = <1 0 0>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK0",
+			"CAM_RESET0",
+			"CAM_STANDBY0";
+	 	qcom,cam-power-seq-type = "sensor_gpio", "sensor_gpio","sensor_vreg", "sensor_vreg", "sensor_vreg","sensor_clk","sensor_gpio", "sensor_gpio";
+	        qcom,cam-power-seq-val = "sensor_gpio_reset", "sensor_gpio_standby", "cam_vana", "cam_vdig","cam_vio","sensor_cam_mclk", "sensor_gpio_reset","sensor_gpio_standby";
+	        qcom,cam-power-seq-cfg-val = <0 0 1 1 1 24000000 1 1>;
+	        qcom,cam-power-seq-delay = <1 1 0 0 0 1 10 100>;
+		status = "ok";
+		clocks = <&clock_gcc clk_mclk0_clk_src>,
+				<&clock_gcc clk_gcc_camss_mclk0_clk>;
+		clock-names = "cam_src_clk", "cam_clk";
+	};
+/*xiaoming.hu@tcl.com  s5k3m2 pdaf idol455 eeprom end*/
+	qcom,camera@0 {
+		cell-index = <0>;
+		compatible = "qcom,camera";
+		reg = <0x0>;
+		qcom,csiphy-sd-index = <0>;
+		qcom,csid-sd-index = <0>;
+		qcom,mount-angle = <90>;
+		qcom,eeprom-src = <&eeprom0>;
+		qcom,actuator-src = <&actuator0>;
+		qcom,led-flash-src = <&led_flash0>;
+		cam_vdig-supply = <&pm8950_l23>;
+		cam_vana-supply = <&pm8950_l22>;
+		cam_vio-supply = <&pm8950_l6>;
+		cam_vaf-supply = <&pm8950_l17>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vio", "cam_vana",
+							"cam_vaf";
+/*modified by xiaoming.hu@tcl.com for 3m2 spec need max 1.05v*/
+		qcom,cam-vreg-min-voltage = <1050000 0 2800000 2850000>;
+		qcom,cam-vreg-max-voltage = <1050000 0 2800000 2850000>;
+		qcom,cam-vreg-op-mode = <200000 0 80000 100000>;
+		pinctrl-names = "cam_default", "cam_suspend";
+		pinctrl-0 = <&cam_sensor_mclk0_default
+				&cam_sensor_rear_default>;
+		pinctrl-1 = <&cam_sensor_mclk0_sleep &cam_sensor_rear_sleep>;
+		gpios = <&msm_gpio 26 0>,
+			<&msm_gpio 36 0>,
+			<&msm_gpio 35 0>;
+		qcom,gpio-reset = <1>;
+		qcom,gpio-standby = <2>;
+		qcom,gpio-req-tbl-num = <0 1 2>;
+		qcom,gpio-req-tbl-flags = <1 0 0>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK0",
+			"CAM_RESET0",
+			"CAM_STANDBY0";
+		qcom,sensor-position = <0>;
+		qcom,sensor-mode = <0>;
+		qcom,cci-master = <0>;
+		status = "ok";
+		clocks = <&clock_gcc clk_mclk0_clk_src>,
+				<&clock_gcc clk_gcc_camss_mclk0_clk>;
+		clock-names = "cam_src_clk", "cam_clk";
+	};
+
+  /* [FEATURE]-MOD-BEGIN TCTSH.SZY,3/9/2016,PR1761389 */
+
+	/*qcom,camera@1 {
+		cell-index = <1>;
+		compatible = "qcom,camera";
+		reg = <0x1>;
+		qcom,csiphy-sd-index = <1>;
+		qcom,csid-sd-index = <1>;
+		qcom,mount-angle = <90>;
+		cam_vdig-supply = <&pm8950_l23>;
+		cam_vana-supply = <&pm8950_l22>;
+		cam_vio-supply = <&pm8950_l6>;
+		cam_vaf-supply = <&pm8950_l17>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vio", "cam_vana",
+							"cam_vaf";
+		qcom,cam-vreg-min-voltage = <1200000 0 2800000 2850000>;
+		qcom,cam-vreg-max-voltage = <1200000 0 2800000 2850000>;
+		qcom,cam-vreg-op-mode = <200000 0 80000 100000>;
+		pinctrl-names = "cam_default", "cam_suspend";
+		pinctrl-0 = <&cam_sensor_mclk1_default &cam_sensor_front_default>;
+		pinctrl-1 = <&cam_sensor_mclk1_sleep &cam_sensor_front_sleep>;
+		gpios = <&msm_gpio 27 0>,
+			<&msm_gpio 38 0>,
+			<&msm_gpio 37 0>;
+		qcom,gpio-reset = <1>;
+		qcom,gpio-standby = <2>;
+		qcom,gpio-req-tbl-num = <0 1 2>;
+		qcom,gpio-req-tbl-flags = <1 0 0>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK1",
+			"CAM_RESET1",
+			"CAM_STANDBY1";
+		qcom,sensor-position = <1>;
+		qcom,sensor-mode = <0>;
+		qcom,cci-master = <0>;
+		status = "ok";
+		clocks = <&clock_gcc clk_mclk1_clk_src>,
+				<&clock_gcc clk_gcc_camss_mclk1_clk>;
+		clock-names = "cam_src_clk", "cam_clk";
+	};*/
+ /* [FEATURE]-MOD-END TCTSH.SZY,3/9/2016,PR1761389 */
+
+	qcom,camera@2 {
+		cell-index = <2>;
+		compatible = "qcom,camera";
+		reg = <0x02>;
+		qcom,csiphy-sd-index = <1>;
+		qcom,csid-sd-index = <1>;
+		qcom,mount-angle = <270>; //modified by xiaoming.hu@tcl.com for some 3rd apk front camera flip
+		qcom,led-flash-src = <&led_flash1>;
+		cam_vdig-supply = <&pm8950_l23>;
+		cam_vana-supply = <&pm8950_l22>;
+		cam_vio-supply = <&pm8950_l6>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vio", "cam_vana", "cam_vaf";
+		qcom,cam-vreg-min-voltage = <1200000 0 2800000 2850000>;
+		qcom,cam-vreg-max-voltage = <1200000 0 2800000 2850000>;
+		qcom,cam-vreg-op-mode = <105000 0 80000 100000>;
+		qcom,gpio-no-mux = <0>;
+		pinctrl-names = "cam_default", "cam_suspend";
+		pinctrl-0 = <&cam_sensor_mclk2_default &cam_sensor_front1_default>;
+		pinctrl-1 = <&cam_sensor_mclk2_sleep &cam_sensor_front1_sleep>;
+		gpios = <&msm_gpio 28 0>,
+			<&msm_gpio 40 0>,
+			<&msm_gpio 39 0>;
+		qcom,gpio-reset = <1>;
+		qcom,gpio-standby = <2>;
+		qcom,gpio-req-tbl-num = <0 1 2>;
+		qcom,gpio-req-tbl-flags = <1 0 0>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK2",
+					  "CAM_RESET2",
+					  "CAM_STANDBY2";
+		qcom,sensor-position = <1>;
+		qcom,sensor-mode = <0>;
+		qcom,cci-master = <0>;
+		status = "ok";
+		clocks = <&clock_gcc clk_mclk2_clk_src>,
+			<&clock_gcc clk_gcc_camss_mclk2_clk>;
+		clock-names = "cam_src_clk", "cam_clk";
+	};
+ /* [FEATURE]-MOD-BEGIN TCTSH.SZY,3/9/2016,PR1761389 */
+	/*qcom,camera@78 {
+		compatible = "ovti,ov2685";
+		reg = <0x78>;
+		qcom,slave-id = <0x78 0x300A 0x2685>;
+		qcom,csiphy-sd-index = <1>;
+		qcom,csid-sd-index = <1>;
+		qcom,mount-angle = <0>;
+		qcom,sensor-name = "ov2685";
+		cam_vdig-supply = <&pm8950_l23>;
+		cam_vio-supply = <&pm8950_l22>;
+		cam_vana-supply = <&pm8950_l6>;
+		cam_vaf-supply = <&pm8950_l17>;
+		qcom,cam-vreg-name = "cam_vdig", "cam_vio", "cam_vana",
+							"cam_vaf";
+		qcom,cam-vreg-min-voltage = <1200000 0 1800000 2850000>;
+		qcom,cam-vreg-max-voltage = <1200000 0 1800000 2850000>;
+		qcom,cam-vreg-op-mode = <200000 0 80000 100000>;
+		qcom,gpio-no-mux = <0>;
+		pinctrl-names = "cam_default", "cam_suspend";
+		pinctrl-0 = <&cam_sensor_mclk1_default
+				&cam_sensor_rear_default>;
+		pinctrl-1 = <&cam_sensor_mclk1_sleep
+				&cam_sensor_rear_sleep>;
+		gpios = <&msm_gpio 27 0>,
+			<&msm_gpio 38 0>,
+			<&msm_gpio 37 0>;
+		qcom,gpio-reset = <1>;
+		qcom,gpio-standby = <2>;
+		qcom,gpio-req-tbl-num = <0 1 2>;
+		qcom,gpio-req-tbl-flags = <1 0 0>;
+		qcom,gpio-req-tbl-label = "CAMIF_MCLK1",
+					  "CAM_RESET1",
+					  "CAM_STANDBY1";
+		qcom,gpio-set-tbl-num = <1 1>;
+		qcom,gpio-set-tbl-flags = <0 2>;
+		qcom,gpio-set-tbl-delay = <1000 30000>;
+		qcom,csi-lane-assign = <0x4320>;
+		qcom,csi-lane-mask = <0x3>;
+		qcom,sensor-position = <0x100>;
+		qcom,sensor-mode = <1>;
+		qcom,cci-master = <1>;
+		status = "ok";
+		clocks = <&clock_gcc clk_mclk1_clk_src>,
+			<&clock_gcc clk_gcc_camss_mclk1_clk>;
+		clock-names = "cam_src_clk", "cam_clk";
+	};*/
+  /* [FEATURE]-MOD-END TCTSH.SZY,3/9/2016,PR1761389 */
+};

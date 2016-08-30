@@ -1,0 +1,8 @@
+config TOUCHSCREEN_FT5436_IDOL4
+       tristate "FT5436 touchscreens"
+       depends on I2C
+       help
+         Say Y here if you have a FT touchscreen on TCL 
+         If unsure, say N.
+         To compile this driver as a module, choose M here: the
+         module will be called FT.
