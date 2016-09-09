@@ -1,0 +1,54 @@
+/*add by sun zhangyang*/
+qcom, {
+	/* #2244055_TCL_TLp026E2_2610mAh_averaged_MasterSlave_Dec14th2015*/
+	qcom,max-voltage-uv = <4400000>;
+	qcom,nom-batt-capacity-mah = <2610>;
+	qcom,batt-id-kohm = <51>;
+	qcom,battery-beta = <3435>;
+	qcom,battery-type = "2244055_tcl_tlp026e2_2610mah_averaged_masterslave_dec14th2015";
+
+        qcom,v-cutoff-uv = <3400000>;
+        qcom,chg-term-ua = <100000>;
+        qcom,fg-cc-cv-threshold-mv = <4390>;
+
+	qcom,chg-rslow-comp-c1 = <2972964>;
+	qcom,chg-rslow-comp-c2 = <3602983>;
+	qcom,chg-rs-to-rslow = <1165360>;
+	qcom,chg-rslow-comp-thr = <0x99>;
+	qcom,checksum = <0x5720>;
+	qcom,gui-version = "PMI8950GUI - 2.0.0.15";
+	qcom,fg-profile-data = [
+		 F7 83 AA 7D 
+		 C6 81 58 7C 
+		 5C 83 0F 6C 
+		 82 83 00 8E 
+		 3F 82 DD 98 
+		 0A B7 CC C2 
+		 58 16 F4 83 
+		 38 7D 75 81 
+		 10 7C 70 83 
+		 47 75 97 8A 
+		 BB 95 54 82 
+		 70 99 8F BC 
+		 21 C9 52 0F 
+		 9D 0A E4 5B 
+		 14 70 01 FE 
+		 2E 2C 5F 45 
+		 FE 22 00 00 
+		 24 4C DE 2E 
+		 6E 3B 00 00 
+		 00 00 00 00 
+		 00 00 00 00 
+		 97 71 7B 6B 
+		 F4 74 5B 88 
+		 C2 7C 27 71 
+		 0D 5E 11 80 
+		 39 76 1C 69 
+		 AC 6F 72 A1 
+		 23 A0 60 97 
+		 5E A0 71 0C 
+		 28 00 FF 36 
+		 F0 11 30 03 
+		 00 00 00 0C 
+	];
+};
