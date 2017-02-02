@@ -1,0 +1,125 @@
+/* Copyright (C) 2016 BlackBerry Limited. All rights reserved.
+ * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+
+/ {
+	reserved-memory {
+		#address-cells = <0x2>;
+		#size-cells = <0x2>;
+		reset_mem: reset_mem@0 {
+			no-map;
+			/*
+			 * Bootloader take the address from the oem,size props
+			 * and insert it here along with the address
+			 */
+			reg = <0 0 0 0>;
+			oem,size = <0x1000>;
+			oem,writeable;
+			label = "reset";
+		};
+
+		reset_log_mem: reset_log_mem@0 {
+			no-map;
+			/*
+			 * Bootloader take the address from the oem,size props
+			 * and insert it here along with the address
+			 */
+			reg = <0 0 0 0>;
+			oem,size = <0x4000>;
+			/* If ddt is enabled, we reserve more memory */
+			oem,size-ddt = <0x80000>;
+			label = "reset_log";
+		};
+	};
+
+	oem,preserved_reset_region {
+		compatible = "oem,preserved_reset_region";
+		regions = <&reset_mem &reset_log_mem> ;
+	};
+
+	oem,export_bsi {
+		compatible = "oem,export_bsi_region", "oem,export_bsi";
+	};
+
+	/* Attributes must be a string.
+	 * Attributes name are limited to 31B.
+	 * We append ro.hwf to each attributes and add a .
+	 * for delimiter between each level of attributes.
+	 *
+	 * So the follwing entry :
+	 * hwfeatures_node {
+	 *    test1 {
+	 *      test2 = "bla";
+	 *    }
+	 * }
+	 *
+	 * Will translate into an attribute name ro.hwf.test1.test2
+	 */
+	hwfeatures_node {
+		compatible = "hwfeatures";
+		/*
+		 * Common NFC properties for all platforms
+		 * Platform dependent properties with same property names override
+		 * common properties
+		 */
+		nfc {
+			devnode = "/dev/pn544";
+			hal_module_ids = "nfc_nci.pn54x";
+			lib_module_ids = "libnfc-nci";
+			config_base = "libnfc-brcm";
+			/* These two properties are device specific */
+			tuning_config = "argon";
+			allow_signed_fw = "yes";
+		};
+	};
+};
+
+
+/*
+ * Setup Notification Blink Rate
+ */
+&spmi_bus {
+	qcom,pmi8994@3 {
+		qcom,leds@d000 {
+			red_led: qcom,rgb_0 {
+			    qcom,start-idx = <0>;
+				qcom,idx-len = <8>;
+				qcom,ramp-step-ms = <500>;
+				qcom,duty-pcts = [64 00 00 00 00 00 00 00];
+			};
+		};
+	};
+};
+
+/*
+ * Flash Mitigation Levels
+ */
+&soc {
+	qcom,camera-flash {
+		oem,flash-mitigation-levels = <2000 1800 1600 1400 1200 1000
+						850 700 550 400 200 100 0>;
+		oem,torch-mitigation-levels = <200 0>;
+	};
+	qcom,camera-flash-front {
+		oem,flash-mitigation-levels = <500 500 500 500 500 500
+						500 500 500 0 0 0 0>;
+		oem,torch-mitigation-levels = <350 0>;
+	};
+
+	tcl,front_flash_led {
+		qcom,max-current = <500>;
+	};
+	tcl,front_torch_led {
+		qcom,max-current = <350>;
+	};
+};
