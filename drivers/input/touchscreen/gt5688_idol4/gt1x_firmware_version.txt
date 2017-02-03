@@ -1,0 +1,4 @@
+/*[PLATFORM]-Add-BEGIN by TCTSH.WXF, Task-2846063, 2016/09/04, v82 firmware */
+[1ST]TP_IC:GT5688 FW_ID=52.0.0 
+#提高p-sensor,glove,vr灵敏度
+/*[PLATFORM]-Add-BEGIN by TCTSH.WXF, Task-2846063, 2016/09/04, v82 firmware */
