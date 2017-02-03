@@ -1,0 +1,70 @@
+#
+# Input misc drivers configuration
+#
+config STM_LSM303D
+	tristate "STM LSM303D acceleration and compass sensor support"
+	depends on BBRY && I2C=y
+	default y
+	help
+	  If you say yes here you get support for STMicroelectronics's
+	  acceleration sensors LSM303D.
+
+config STM_L3GD20
+	tristate "STM L3GD20 gyro sensor support"
+	depends on BBRY && I2C=y
+	default y
+	help
+	  If you say yes here you get support for STMicroelectronics's
+	  gyro sensors L3GD20.
+
+config STMVL6180
+	tristate "STM VL6180 Proximity support"
+	depends on BBRY && I2C=y
+	default y
+	help
+	  Say Y here if you want to use STMicroelectronics's proximity sensor
+	  through I2C interface.
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called stmvl6180.
+
+config SENSOR_HUB
+	tristate "Sensor hub passthrough support"
+	depends on BBRY && I2C=y
+	default y
+	help
+	  Say Y here if you want to use the sensor hub i2c passthrough
+	  interface
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called sensor_hub
+
+config M4_HUB
+	tristate "M4 hub support"
+	depends on BBRY && I2C=y
+	default y
+	help
+	  Say Y here if you want to use the m4 hub interface
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called m4_hub
+
+config SENSOR_EXTENDED
+	tristate "Extended sensor class support"
+	depends on BBRY
+	default y
+	help
+	  Say Y here if you want to use the extended sensor class interface
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called sensor_extended
+
+config HALL_SENSOR
+	tristate "Hall sensor (holster & slider) support"
+	depends on BBRY
+	default n
+	help
+	  Say Y here if you want to use the hall
+
+	  To compile this driver as a module, choose M here: the
+	  module will be called hall
