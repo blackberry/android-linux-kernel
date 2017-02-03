@@ -1,0 +1,7 @@
+config MSM_BCM_PCIE
+	bool "Add board support file for QC MSM and Broadcom Wifi PCIe"
+	depends on BBRY && PCI_MSM && BCMDHD && BCMDHD_PCIE
+	default n
+	---help---
+	help
+	  If unsure, say N.
