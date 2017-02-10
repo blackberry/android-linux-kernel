@@ -1,0 +1,67 @@
+/* Copyright (c) 2014-2015, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+qcom,byd-3000mah-4400mv {
+	/* #2207957_TCL_TLp030F1byd_3000mAh_averaged_MasterSlave_Oct27th2015*/
+	qcom,max-voltage-uv = <4400000>;
+	qcom,nom-batt-capacity-mah = <3000>;
+	qcom,batt-id-kohm = <33 30>;
+	qcom,battery-beta = <3380>;
+	qcom,battery-type = "byd";
+	qcom,thermal-coefficients = [da 86 f0 50 08 3c];
+
+	qcom,v-cutoff-uv = <3400000>;
+	qcom,chg-term-ua = <100000>;
+	qcom,fastchg-current-ma = <3000>;
+	qcom,fg-cc-cv-threshold-mv = <4390>;
+	
+	qcom,chg-rslow-comp-c1 = <3922126>;
+	qcom,chg-rslow-comp-c2 = <6220910>;
+	qcom,chg-rs-to-rslow = <953732>;
+	qcom,chg-rslow-comp-thr = <0xAF>;
+	qcom,checksum = <0x1B1C>;
+	qcom,gui-version = "PMI8950GUI - 2.0.0.14";
+	qcom,fg-profile-data = [
+		 F1 83 7B 7D 
+		 94 81 10 7C 
+		 61 83 44 6E 
+		 55 88 DD 8E 
+		 22 82 EC 98 
+		 8C B6 D6 C1 
+		 58 15 EE 83 
+		 D9 7C F7 80 
+		 CE 76 68 83 
+		 CC 6E 7E 89 
+		 FA 94 4C 82 
+		 FD 99 62 BD 
+		 83 CA 52 0D 
+		 02 0C AC 5B 
+		 14 70 71 FD 
+		 F4 3C 7B 46 
+		 7B 40 00 00 
+		 5D 4C 9F 30 
+		 A6 3B 00 00 
+		 00 00 00 00 
+		 00 00 00 00 
+		 06 6B 59 69 
+		 82 78 BF 8B 
+		 04 77 EA 6A 
+		 6B 3B EA 82 
+		 DE 75 57 69 
+		 98 6F 09 AB 
+		 1B 17 62 FA 
+		 64 A0 71 0C 
+		 28 00 FF 36 
+		 F0 11 30 03 
+		 00 00 00 0C 
+	];
+};
