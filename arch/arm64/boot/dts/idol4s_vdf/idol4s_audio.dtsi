@@ -1,0 +1,349 @@
+/* Copyright (c) 2014-2015, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+ /{
+ 
+	aliases {
+			i2c1  = &i2c_1;
+	};
+};
+
+&soc {
+	sound-9335 {
+		status = "disabled";
+	};
+	
+	sound {
+		compatible = "qcom,msm8952-audio-codec";
+		qcom,model = "msm8976-snd-card-mtp";
+		reg = <0xc051000 0x4>,
+		      <0xc051004 0x4>,
+		      <0xc055000 0x4>,
+		      <0xc052000 0x4>;
+		reg-names = "csr_gp_io_mux_mic_ctl",
+			    "csr_gp_io_mux_spkr_ctl",
+			    "csr_gp_io_lpaif_pri_pcm_pri_mode_muxsel",
+			    "csr_gp_io_mux_quin_ctl";
+
+		qcom,msm-ext-pa = "primary","quaternary", "quinary";
+		qcom,msm-mclk-freq = <9600000>;
+		qcom,msm-mbhc-hphl-swh = <1>;
+		qcom,msm-mbhc-gnd-swh = <0>;
+		qcom,msm-hs-micbias-type = "internal";
+		qcom,msm-micbias1-ext-cap;
+		qcom,audio-routing =
+			"RX_BIAS", "MCLK",
+			"SPK_RX_BIAS", "MCLK",
+			"INT_LDO_H", "MCLK",
+			"MIC BIAS External", "Handset Mic",
+			"MIC BIAS Internal2", "Headset Mic",
+			"MIC BIAS External", "Secondary Mic",
+			"AMIC1", "MIC BIAS External",
+			"AMIC2", "MIC BIAS Internal2",
+			"AMIC3", "MIC BIAS External";
+		qcom,msm-gpios =
+			"pri_i2s",
+			"quat_i2s",
+			"quin_i2s";
+		qcom,pinctrl-names =
+			"all_off",
+			"pri_i2s_act",
+			"quin_i2s_act",
+			"quat_i2s_act",
+			"pri_quin_i2s_act",
+			"pri_quat_i2s_act",
+			"quin_quat_i2s_act",
+			"pri_quin_quat_i2s_act"; /*Kun.Guan & Xing.Wang add pri quat quin i2s pinctrl, 2015-09-01*/
+		pinctrl-names =
+			"all_off",
+			"pri_i2s_act",
+			"quin_i2s_act",
+			"pri_quin_i2s_act",
+			"quat_i2s_act",	
+			"pri_quat_i2s_act",
+			"quin_quat_i2s_act",
+			"pri_quin_quat_i2s_act";  /*Kun.Guan & Xing.Wang add pri quat quin i2s pinctrl, 2015-09-01*/
+		pinctrl-0 = <&cdc_pdm_lines_sus &cdc_pdm_lines_2_sus &quin_mi2s_mclk_sus &quin_mi2s_sclk_sus &quin_mi2s_ws_data_sus &quat_mi2s_lines_sus &quat_mi2s_2_lines_sus>;
+		pinctrl-1 = <&cdc_pdm_lines_act &cdc_pdm_lines_2_act &quin_mi2s_mclk_sus &quin_mi2s_sclk_sus &quin_mi2s_ws_data_sus &quat_mi2s_lines_sus &quat_mi2s_2_lines_sus>;
+		pinctrl-2 = <&cdc_pdm_lines_sus &cdc_pdm_lines_2_sus &quin_mi2s_mclk_act &quin_mi2s_sclk_act &quin_mi2s_ws_data_act &quat_mi2s_lines_sus &quat_mi2s_2_lines_sus>;
+		pinctrl-3 = <&cdc_pdm_lines_act &cdc_pdm_lines_2_act &quin_mi2s_mclk_act &quin_mi2s_sclk_act &quin_mi2s_ws_data_act &quat_mi2s_lines_sus &quat_mi2s_2_lines_sus>;
+		pinctrl-4 = <&cdc_pdm_lines_sus &cdc_pdm_lines_2_sus &quin_mi2s_mclk_sus &quin_mi2s_sclk_sus &quin_mi2s_ws_data_sus &quat_mi2s_lines_act &quat_mi2s_2_lines_act>;
+		pinctrl-5 = <&cdc_pdm_lines_act &cdc_pdm_lines_2_act &quin_mi2s_mclk_sus &quin_mi2s_sclk_sus &quin_mi2s_ws_data_sus &quat_mi2s_lines_act &quat_mi2s_2_lines_act>;
+		pinctrl-6 = <&cdc_pdm_lines_sus &cdc_pdm_lines_2_sus &quin_mi2s_mclk_act &quin_mi2s_sclk_act &quin_mi2s_ws_data_act &quat_mi2s_lines_act &quat_mi2s_2_lines_act>;
+		pinctrl-7 = <&cdc_pdm_lines_act &cdc_pdm_lines_2_act &quin_mi2s_mclk_act &quin_mi2s_sclk_act &quin_mi2s_ws_data_act &quat_mi2s_lines_act &quat_mi2s_2_lines_act>;  /*Kun.Guan & Xing.Wang add pri quat quin i2s pinctrl, 2015-09-01*/
+
+		asoc-platform = <&pcm0>, <&pcm1>, <&pcm2>, <&voip>, <&voice>,
+				<&loopback>, <&compress>, <&hostless>,
+				<&afe>, <&lsm>, <&routing>, <&lpa>,
+				<&voice_svc>;
+		asoc-platform-names = "msm-pcm-dsp.0", "msm-pcm-dsp.1", "msm-pcm-dsp.2",
+				"msm-voip-dsp", "msm-pcm-voice", "msm-pcm-loopback",
+				"msm-compress-dsp", "msm-pcm-hostless", "msm-pcm-afe",
+				"msm-lsm-client", "msm-pcm-routing", "msm-pcm-lpa",
+				"msm-voice-svc";
+		asoc-cpu = <&dai_pri_auxpcm>, <&dai_hdmi>,
+				<&dai_mi2s0>, <&dai_mi2s1>, <&dai_mi2s2>, <&dai_mi2s3>,
+				<&dai_mi2s5>, <&dai_mi2s6>,
+				<&sb_0_rx>, <&sb_0_tx>, <&sb_1_rx>, <&sb_1_tx>,
+				<&sb_3_rx>, <&sb_3_tx>, <&sb_4_rx>, <&sb_4_tx>,
+				<&bt_sco_rx>, <&bt_sco_tx>, <&int_fm_rx>, <&int_fm_tx>,
+				<&afe_pcm_rx>, <&afe_pcm_tx>, <&afe_proxy_rx>, <&afe_proxy_tx>,
+				<&incall_record_rx>, <&incall_record_tx>, <&incall_music_rx>,
+				<&incall_music_2_rx>;
+		asoc-cpu-names = "msm-dai-q6-auxpcm.1", "msm-dai-q6-hdmi.8",
+				"msm-dai-q6-mi2s.0", "msm-dai-q6-mi2s.1",
+				"msm-dai-q6-mi2s.2", "msm-dai-q6-mi2s.3",
+				"msm-dai-q6-mi2s.5", "msm-dai-q6-mi2s.6",
+				"msm-dai-q6-dev.16384", "msm-dai-q6-dev.16385",
+				"msm-dai-q6-dev.16386", "msm-dai-q6-dev.16387",
+				"msm-dai-q6-dev.16390", "msm-dai-q6-dev.16391",
+				"msm-dai-q6-dev.16392", "msm-dai-q6-dev.16393",
+				"msm-dai-q6-dev.12288", "msm-dai-q6-dev.12289",
+				"msm-dai-q6-dev.12292", "msm-dai-q6-dev.12293",
+				"msm-dai-q6-dev.224", "msm-dai-q6-dev.225",
+				"msm-dai-q6-dev.241", "msm-dai-q6-dev.240",
+				"msm-dai-q6-dev.32771", "msm-dai-q6-dev.32772",
+				"msm-dai-q6-dev.32773", "msm-dai-q6-dev.32770";
+		asoc-codec = <&stub_codec>, <&pm8950_cajon_dig>;
+		asoc-codec-names = "msm-stub-codec.1", "cajon_codec";
+	};
+
+	tlmm_pinmux: pinctrl@1000000 {
+		quin-mi2s-mclk-lines {
+			qcom,pins = <&gp 126>;
+			qcom,num-grp-pins = <1>;
+			qcom,pin-func = <2>;
+			label = "quin-mi2s-mclk-lines";
+			quin_mi2s_mclk_act: quin_mi2s_mclk_on {
+				drive-strength = <8>;
+			};
+			
+			quin_mi2s_mclk_sus: quin_mi2s_mclk_off {
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+		
+		quin-mi2s-sclk-lines {
+			qcom,pins = <&gp 124>;
+			qcom,num-grp-pins = <1>;
+			qcom,pin-func = <1>;
+			label = "quin-mi2s-sclk-lines";
+			quin_mi2s_sclk_act: quin_mi2s_sclk_on {
+				drive-strength = <8>;
+			};
+			
+			quin_mi2s_sclk_sus: quin_mi2s_sclk_off {
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+		
+		quin-mi2s-ws-data-lines {
+			qcom,pins = <&gp 123>, <&gp 125>;
+			qcom,num-grp-pins = <2>;
+			qcom,pin-func = <1>;
+			label = "quin-mi2s-ws-data-lines";
+			quin_mi2s_ws_data_act: quin_mi2s_ws_data_on {
+				drive-strength = <8>;
+			};
+			
+			quin_mi2s_ws_data_sus: quin_mi2s_ws_data_off {
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+		
+		quat-mi2s-lines {
+			qcom,pins = <&gp 105>, <&gp 102>;
+			qcom,num-grp-pins = <2>;
+			qcom,pin-func = <1>;
+			label = "quat-mi2s-lines";
+			quat_mi2s_lines_act: quat_mi2s_lines_on {
+				drive-strength = <8>;
+			};
+			
+			quat_mi2s_lines_sus: quat_mi2s_lines_off {
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+		quat-mi2s-2-lines {
+			qcom,pins = <&gp 134>, <&gp 135>;
+			qcom,num-grp-pins = <2>;
+			qcom,pin-func = <3>;
+			label = "quat-mi2s-2-lines";
+			quat_mi2s_2_lines_act: quat_mi2s_2_lines_on {
+				drive-strength = <8>;
+			};
+			
+			quat_mi2s_2_lines_sus: quat_mi2s_2_lines_off {
+				drive-strength = <2>;
+				bias-disable;
+			};
+		};
+
+		pmx_i2c_1 {
+                        /* CLK, DATA */
+                        qcom,pins = <&gp 2>, <&gp 3>;
+                        qcom,num-grp-pins = <2>;
+                        qcom,pin-func = <3>;
+                        label = "pmx_i2c_1";
+			/* active state */
+                        i2c_1_active: i2c_1_active {
+				drive-strength = <2>; /* 2 MA */
+				bias-disable = <0>; /* No PULL */
+                        };
+			/* suspend state */
+                        i2c_1_sleep: i2c_1_sleep {
+				drive-strength = <2>; /* 2 MA */
+				bias-disable = <0>; /* No PULL */
+                        };
+                };
+
+		ak4376_dac_pdn_active {
+			qcom,pins = <&gp 66>;
+			qcom,pin-func = <0>;
+			qcom,num-grp-pins = <1>;
+			label = "ak4376_dac_pdn_active";
+
+			dac_pdn_active: dac_pdn_active {
+				drive-strength = <16>;
+				bias-disable;
+				output-low;
+			};
+		};
+
+		ak4376_dac_pdn_suspend {
+			qcom,pins = <&gp 66>;
+			qcom,pin-func = <0>;
+			qcom,num-grp-pins = <1>;
+			label = "ak4376_dac_pdn_suspend";
+
+			dac_pdn_suspend: dac_pdn_suspend {
+				drive-strength = <2>;
+				input-enable;
+				bias-pull-down;
+			};
+		};
+
+		ak4376_dac_ldo_ctl_active {
+			qcom,pins = <&gp 18>;
+			qcom,pin-func = <0>;
+			qcom,num-grp-pins = <1>;
+			label = "ak4376_dac_ldo_ctl_active";
+
+			dac_ldo_ctl_active: dac_ldo_ctl_active {
+				drive-strength = <16>;
+				bias-disable;
+				output-low;
+			};
+		};
+
+		ak4376_dac_ldo_ctl_suspend {
+			qcom,pins = <&gp 18>;
+			qcom,pin-func = <0>;
+			qcom,num-grp-pins = <1>;
+			label = "ak4376_dac_ldo_ctl_suspend";
+
+			dac_ldo_ctl_suspend: dac_ldo_ctl_suspend  {
+				drive-strength = <2>;
+				input-enable;
+				bias-pull-down;
+			};
+		};
+
+		nxp9890_spk_rcv_switch {
+			qcom,pins = <&gp 13>, <&gp 19>;
+			qcom,pin-func = <0>;
+			qcom,num-grp-pins = <2>;
+			label = "nxp9890_spk_rcv_switch";
+			nxp9890_spk_rcv_active: nxp9890_spk_rcv_active {
+				drive-strength = <2>;
+				bias-pull-up;
+			};
+			nxp9890_spk_rcv_suspend: nxp9890_spk_rcv_suspend {
+				drive-strength = <2>;
+				bias-pull-down;
+			};
+		};
+
+
+	};
+	
+	i2c_8: i2c@7af8000 { /* BLSP2 QUP4 */
+		  status = "disabled";
+	};	
+
+	i2c_1: i2c@78b5000 { /* BLSP1 QUP1 */
+                compatible = "qcom,i2c-msm-v2";
+                #address-cells = <1>;
+                #size-cells = <0>;
+                reg-names = "qup_phys_addr";
+                reg = <0x78b5000 0x600>;
+                interrupt-names = "qup_irq";
+                interrupts = <0 95 0>;
+                qcom,clk-freq-out = <400000>;
+                qcom,clk-freq-in  = <19200000>;
+                clock-names = "iface_clk", "core_clk";
+                clocks = <&clock_gcc clk_gcc_blsp1_ahb_clk>,
+                         <&clock_gcc clk_gcc_blsp1_qup1_i2c_apps_clk>;
+                pinctrl-names = "i2c_active", "i2c_sleep";
+                pinctrl-0 = <&i2c_1_active>;
+                pinctrl-1 = <&i2c_1_sleep>;
+                qcom,noise-rjct-scl = <0>;
+                qcom,noise-rjct-sda = <0>;
+                qcom,master-id = <86>;
+                dmas = <&dma_blsp1 4 64 0x20000020 0x20>,
+                        <&dma_blsp1 5 32 0x20000020 0x20>;
+                dma-names = "tx", "rx";
+        };
+
+};
+
+	&i2c_1 { /* BLSP1 QUP1 */
+	/*hifi codec, akm, ak4376*/
+	        ak4376@10 {
+	            compatible = "akm,ak4376";
+	            reg = <0x10>;
+	            pinctrl-names = "ak4376_dac_active","ak4376_dac_suspend";
+	            pinctrl-0 = <&dac_pdn_active &dac_ldo_ctl_active>;
+	            pinctrl-1 = <&dac_pdn_suspend &dac_ldo_ctl_suspend>;
+	            akm,dac-gpio = <&msm_gpio 66 0x00>;
+	            akm,ldo-gpio = <&msm_gpio 18 0x00>;
+	            vdd-supply = <&pm8950_l5>;
+	        };	
+
+	        /*two smartPA, nxp tfa9890, only provide one interface i2c addr 0x34 0x35*/
+	        tfa9897@38 {
+	            compatible = "nxp,tfa9890";
+	            reg = <0x38>;
+	            pinctrl-names = "nxp9890_spk_rcv_switch_active","nxp9890_spk_rcv_switch_suspend";
+	            pinctrl-0 = <&nxp9890_spk_rcv_active>;
+	            pinctrl-1 = <&nxp9890_spk_rcv_suspend>;
+	            tfa,rst-gpio = <&msm_gpio 34 0x00>;
+	            tfa,rst-1-gpio = <&msm_gpio 36 0x00>;
+	            tfa,spk-rcv-switch1 = <&msm_gpio 19 0x00>;
+	            tfa,spk-rcv-switch2 = <&msm_gpio 13 0x00>;
+		
+	            vdd-supply = <&pm8950_l5>;
+	        };
+	        tfa9897@40 {
+	            compatible = "nxp,tfa9890";
+	            reg = <0x40>;
+	            vdd-supply = <&pm8950_l5>;
+	        };		
+	};
+
+&slim_msm {
+	status = "disabled";
+	};

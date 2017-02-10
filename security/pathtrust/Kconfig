@@ -1,0 +1,94 @@
+config SECURITY_PATHTRUST
+	bool "Pathtrust Support"
+	select GLOB
+	depends on SECURITY
+	default n
+	help
+	  This select the pathtrust security module which enables mount
+	  points to be whitelisted as trusted and enforces limitations on
+	  what can be executed/loaded by the kernel.
+	  The state of pathtrust can be read from /sys/kernel/security/pathtrust/enabled
+	  where the states are enabled(1) and disabled(0) (requires SECURITYFS enabled and
+	  mounted). If you are unsure how to answer this question, answer N.
+
+config SECURITY_PATHTRUST_ROOTFS
+	bool "Pathtrust whitelist rootfs"
+	depends on SECURITY_PATHTRUST
+	default y
+	help
+	  This whitelists rootfs in pathtrust at module init time. It also
+	  sets the rootfs mount as 'trusted' at kernel init time.
+	  Defaults to Y.
+
+config SECURITY_PATHTRUST_WHITELIST_IMPLICIT
+	bool "Consider all devices implicitly whitelisted"
+	depends on SECURITY_PATHTRUST
+	default n
+	help
+	  Considers all devices whitelisted for debugging
+	  purposes on systems where devices may not be whitelisted
+	  using the normal process. Defaults to n.
+
+config SECURITY_PATHTRUST_PATHNAMES
+	string "Whitelisted pathnames"
+	depends on SECURITY_PATHTRUST
+	default ""
+	help
+	  Semi-colon separated whitelist of glob-aware pathnames to match in exec mmap
+	  security checks. Full pathnames are matched. Defaults to empty.
+
+config SECURITY_PATHTRUST_FIRMWARE
+	bool "Block firmware loading from anonymous sources"
+	depends on SECURITY_PATHTRUST
+	default y
+	help
+	  Semi-colon separated whitelist of glob-aware pathnames to match in exec mmap
+	  security checks. Full pathnames are matched. Defaults to Y.
+
+config SECURITY_PATHTRUST_BOOTPARAM
+	bool "Pathtrust boot parameter"
+	depends on SECURITY_PATHTRUST
+	default n
+	help
+	  This option adds a kernel parameter 'pathtrust', which allows Pathtrust
+	  to be disabled at boot.  If this option is selected, Pathtrust
+	  functionality can be disabled with pathtrust=0 on the kernel
+	  command line.  The purpose of this option is to allow a single
+	  kernel image to be distributed with Pathtrust built in, but not
+	  necessarily enabled. Defaults to N.
+
+	  If you are unsure how to answer this question, answer N.
+
+config SECURITY_PATHTRUST_BOOTPARAM_VALUE
+	int "Pathtrust boot parameter default value"
+	depends on SECURITY_PATHTRUST_BOOTPARAM
+	range 0 1
+	default 1
+	help
+	  This option sets the default value for the kernel parameter
+	  'pathtrust', which allows Pathtrust to be disabled at boot.  If this
+	  option is set to 0 (zero), the Pathtrust kernel parameter will
+	  default to 0, disabling Pathtrust at bootup.  If this option is
+	  set to 1 (one), the Pathtrust kernel parameter will default to 1,
+	  enabling Pathtrust at bootup. Defaults to 1.
+
+	  If you are unsure how to answer this question, answer 1.
+
+config SECURITY_PATHTRUST_DEVELOP
+	bool "Pathtrust Development Support"
+	depends on SECURITY_PATHTRUST
+	default n
+	help
+	  This enables the development support option of Pathtrust. This
+	  enables you to toggle pathtrust between enabled (1) or disabled (0)
+	  via /sys/kernel/security/pathtrust/enabled. Defaults to N.
+
+config SECURITY_PATHTRUST_SELINUX
+	bool "Pathtrust SELinux Support"
+	depends on SECURITY_PATHTRUST
+	default y
+	help
+	  This enables the selinux forbidden context support in pathtrust.
+	  This feature enables one to load forbidden context domains which are
+	  not allowed to execute files on untrusted filesystems. Defaults to Y.
+
