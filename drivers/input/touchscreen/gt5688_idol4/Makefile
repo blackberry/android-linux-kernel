@@ -1,0 +1,8 @@
+obj-$(CONFIG_TOUCHSCREEN_GT5688_IDOL4) += gt1x.o
+obj-$(CONFIG_TOUCHSCREEN_GT5688_IDOL4) += gt1x_generic.o
+obj-$(CONFIG_TOUCHSCREEN_GT5688_IDOL4) += gt1x_update.o
+obj-$(CONFIG_TOUCHSCREEN_GT5688_IDOL4) += gt1x_tools.o
+#obj-$(CONFIG_TOUCHSCREEN_GT1xx_IDOL4) += gt1x_firmware.o
+obj-$(CONFIG_TOUCHSCREEN_GT5688_IDOL4) += gt1x_extents.o
+
+

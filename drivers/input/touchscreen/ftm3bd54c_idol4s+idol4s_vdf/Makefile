@@ -1,0 +1,4 @@
+obj-$(CONFIG_TOUCHSCREEN_FTM3BD54C_IDOL4S) += fts.o
+
+
+
