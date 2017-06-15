@@ -1,0 +1,11 @@
+config SLIMPORT
+	bool "Analogix Slimport Driver support"
+	help
+		Slimport Transmitter is a HD video transmitter chip 
+		over micro-USB connector for smartphone device.
+
+
+source "drivers/slimport/ANX7816/Kconfig"
+
+source "drivers/slimport/ANX7808/Kconfig"
+
