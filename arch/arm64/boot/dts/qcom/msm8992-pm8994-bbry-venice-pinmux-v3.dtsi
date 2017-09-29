@@ -1,0 +1,151 @@
+/* Copyright (C) 2015 BlackBerry Limited. All rights reserved.
+ * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and//or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+/*  Generated from file: MSM8992_ PIN MUX_Rev2_1.csv */
+#include "msm8992-pm8994-bbry-venice-pinmux.dtsi"
+&tlmm_pinmux {
+
+	pinctrl-names = "default";
+	pinctrl-0 = <
+		&pmx_init_gpio_1_default_config
+		&pmx_init_gpio_2_default_config
+		&pmx_init_gpio_3_default_config
+		&pmx_init_gpio_4_default_config
+		&pmx_init_gpio_5_default_config
+		&pmx_init_gpio_6_default_config
+		&pmx_init_gpio_7_default_config
+		&pmx_init_gpio_9_default_config
+		&pmx_init_gpio_10_default_config
+		&pmx_init_gpio_11_default_config
+		&pmx_init_gpio_12_default_config
+		&pmx_init_gpio_13_default_config
+		&pmx_init_gpio_15_default_config
+		&pmx_init_gpio_17_default_config
+		&pmx_init_gpio_18_default_config
+		&pmx_init_gpio_19_default_config
+		&pmx_init_gpio_20_default_config
+		&pmx_init_gpio_21_default_config
+		&pmx_init_gpio_22_default_config
+		&pmx_init_gpio_23_default_config
+		&pmx_init_gpio_24_default_config
+		&pmx_init_gpio_25_default_config
+		&pmx_init_gpio_26_default_config
+		&pmx_init_gpio_27_default_config
+		&pmx_init_gpio_28_default_config
+		&pmx_init_gpio_29_default_config
+		&pmx_init_gpio_30_default_config
+		&pmx_init_gpio_31_default_config
+		&pmx_init_gpio_32_default_config
+		&pmx_init_gpio_33_default_config
+		&pmx_init_gpio_34_default_config
+		&pmx_init_gpio_35_default_config
+		&pmx_init_gpio_36_default_config
+		&pmx_init_gpio_37_default_config
+		&pmx_init_gpio_38_default_config
+		&pmx_init_gpio_39_default_config
+		&pmx_init_gpio_40_default_config
+		&pmx_init_gpio_42_default_config
+		&pmx_init_gpio_43_default_config
+		&pmx_init_gpio_44_default_config
+		&pmx_init_gpio_45_default_config
+		&pmx_init_gpio_46_default_config
+		&pmx_init_gpio_47_default_config
+		&pmx_init_gpio_48_default_config
+		&pmx_init_gpio_53_default_config
+		&pmx_init_gpio_54_default_config
+		&pmx_init_gpio_55_default_config
+		&pmx_init_gpio_56_default_config
+		&pmx_init_gpio_57_default_config
+		&pmx_init_gpio_62_default_config
+		&pmx_init_gpio_63_default_config
+		&pmx_init_gpio_64_default_config
+		&pmx_init_gpio_65_default_config
+		&pmx_init_gpio_66_default_config
+		&pmx_init_gpio_67_default_config
+		&pmx_init_gpio_68_default_config
+		&pmx_init_gpio_70_default_config
+		&pmx_init_gpio_71_default_config
+		&pmx_init_gpio_72_default_config
+		&pmx_init_gpio_73_default_config
+		&pmx_init_gpio_74_default_config
+		&pmx_init_gpio_78_default_config
+		&pmx_init_gpio_79_default_config
+		&pmx_init_gpio_80_default_config
+		&pmx_init_gpio_81_default_config
+		&pmx_init_gpio_82_default_config
+		&pmx_init_gpio_83_default_config
+		&pmx_init_gpio_84_default_config
+		&pmx_init_gpio_87_default_config
+		&pmx_init_gpio_88_default_config
+		&pmx_init_gpio_89_default_config
+		&pmx_init_gpio_90_default_config
+		&pmx_init_gpio_92_default_config
+		&pmx_init_gpio_94_default_config
+		&pmx_init_gpio_95_default_config
+		&pmx_init_gpio_96_default_config
+		&pmx_init_gpio_97_default_config
+		&pmx_init_gpio_98_default_config
+		&pmx_init_gpio_99_default_config
+		&pmx_init_gpio_100_default_config
+		&pmx_init_gpio_101_default_config
+		&pmx_init_gpio_102_default_config
+		&pmx_init_gpio_104_default_config
+		&pmx_init_gpio_105_default_config
+		&pmx_init_gpio_106_default_config
+		&pmx_init_gpio_107_default_config
+		&pmx_init_gpio_108_default_config
+		&pmx_init_gpio_109_default_config
+		&pmx_init_gpio_110_default_config
+		&pmx_init_gpio_111_default_config
+		&pmx_init_gpio_113_default_config
+		&pmx_init_gpio_114_default_config
+		&pmx_init_gpio_115_default_config
+		&pmx_init_gpio_116_default_config
+		&pmx_init_gpio_117_default_config
+		&pmx_init_gpio_118_default_config
+		&pmx_init_gpio_119_default_config
+		&pmx_init_gpio_120_default_config
+		&pmx_init_gpio_121_default_config
+		&pmx_init_gpio_123_default_config
+		&pmx_init_gpio_124_default_config
+		&pmx_init_gpio_125_default_config
+		&pmx_init_gpio_126_default_config
+		&pmx_init_gpio_127_default_config
+		&pmx_init_gpio_129_default_config
+		&pmx_init_gpio_130_default_config
+		&pmx_init_gpio_131_default_config
+		&pmx_init_gpio_133_default_config
+		&pmx_init_gpio_134_default_config
+		&pmx_init_gpio_135_default_config
+		&pmx_init_gpio_136_default_config
+		&pmx_init_gpio_137_default_config
+		&pmx_init_gpio_138_default_config
+		&pmx_init_gpio_139_default_config
+		&pmx_init_gpio_140_default_config
+		&pmx_init_gpio_141_default_config
+		&pmx_init_gpio_142_default_config
+		&pmx_init_gpio_143_default_config
+		&pmx_init_gpio_144_default_config
+		&pmx_init_gpio_145_default_config>;
+
+	pmx_init_gpio_74_default {
+		qcom,pins = <&gp 74>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_74_default_config";
+		pmx_init_gpio_74_default_config:pmx_init_gpio_74_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-enable;
+		};
+	};
+};
