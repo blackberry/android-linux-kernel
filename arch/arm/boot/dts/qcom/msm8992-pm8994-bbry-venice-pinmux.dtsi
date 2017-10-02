@@ -1,0 +1,1361 @@
+/* Copyright (C) 2015 BlackBerry Limited. All rights reserved.
+ * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and//or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+/*  Generated from file: MSM8992_PINMUX_Rev2_8.csv */
+
+&tlmm_pinmux {
+
+	pinctrl-names = "default";
+	pinctrl-0 = <
+		&pmx_init_gpio_1_default_config
+		&pmx_init_gpio_2_default_config
+		&pmx_init_gpio_3_default_config
+		&pmx_init_gpio_4_default_config
+		&pmx_init_gpio_5_default_config
+		&pmx_init_gpio_6_default_config
+		&pmx_init_gpio_7_default_config
+		&pmx_init_gpio_9_default_config
+		&pmx_init_gpio_10_default_config
+		&pmx_init_gpio_11_default_config
+		&pmx_init_gpio_12_default_config
+		&pmx_init_gpio_13_default_config
+		&pmx_init_gpio_15_default_config
+		&pmx_init_gpio_17_default_config
+		&pmx_init_gpio_18_default_config
+		&pmx_init_gpio_19_default_config
+		&pmx_init_gpio_20_default_config
+		&pmx_init_gpio_21_default_config
+		&pmx_init_gpio_22_default_config
+		&pmx_init_gpio_23_default_config
+		&pmx_init_gpio_24_default_config
+		&pmx_init_gpio_25_default_config
+		&pmx_init_gpio_26_default_config
+		&pmx_init_gpio_27_default_config
+		&pmx_init_gpio_28_default_config
+		&pmx_init_gpio_29_default_config
+		&pmx_init_gpio_30_default_config
+		&pmx_init_gpio_31_default_config
+		&pmx_init_gpio_32_default_config
+		&pmx_init_gpio_33_default_config
+		&pmx_init_gpio_34_default_config
+		&pmx_init_gpio_35_default_config
+		&pmx_init_gpio_36_default_config
+		&pmx_init_gpio_37_default_config
+		&pmx_init_gpio_38_default_config
+		&pmx_init_gpio_39_default_config
+		&pmx_init_gpio_40_default_config
+		&pmx_init_gpio_42_default_config
+		&pmx_init_gpio_43_default_config
+		&pmx_init_gpio_44_default_config
+		&pmx_init_gpio_45_default_config
+		&pmx_init_gpio_46_default_config
+		&pmx_init_gpio_47_default_config
+		&pmx_init_gpio_48_default_config
+		&pmx_init_gpio_53_default_config
+		&pmx_init_gpio_54_default_config
+		&pmx_init_gpio_55_default_config
+		&pmx_init_gpio_56_default_config
+		&pmx_init_gpio_57_default_config
+		&pmx_init_gpio_62_default_config
+		&pmx_init_gpio_63_default_config
+		&pmx_init_gpio_64_default_config
+		&pmx_init_gpio_65_default_config
+		&pmx_init_gpio_66_default_config
+		&pmx_init_gpio_67_default_config
+		&pmx_init_gpio_68_default_config
+		&pmx_init_gpio_70_default_config
+		&pmx_init_gpio_71_default_config
+		&pmx_init_gpio_72_default_config
+		&pmx_init_gpio_73_default_config
+		&pmx_init_gpio_78_default_config
+		&pmx_init_gpio_79_default_config
+		&pmx_init_gpio_80_default_config
+		&pmx_init_gpio_81_default_config
+		&pmx_init_gpio_82_default_config
+		&pmx_init_gpio_83_default_config
+		&pmx_init_gpio_84_default_config
+		&pmx_init_gpio_87_default_config
+		&pmx_init_gpio_88_default_config
+		&pmx_init_gpio_89_default_config
+		&pmx_init_gpio_90_default_config
+		&pmx_init_gpio_92_default_config
+		&pmx_init_gpio_94_default_config
+		&pmx_init_gpio_95_default_config
+		&pmx_init_gpio_96_default_config
+		&pmx_init_gpio_97_default_config
+		&pmx_init_gpio_98_default_config
+		&pmx_init_gpio_99_default_config
+		&pmx_init_gpio_100_default_config
+		&pmx_init_gpio_101_default_config
+		&pmx_init_gpio_102_default_config
+		&pmx_init_gpio_104_default_config
+		&pmx_init_gpio_105_default_config
+		&pmx_init_gpio_106_default_config
+		&pmx_init_gpio_107_default_config
+		&pmx_init_gpio_108_default_config
+		&pmx_init_gpio_109_default_config
+		&pmx_init_gpio_110_default_config
+		&pmx_init_gpio_111_default_config
+		&pmx_init_gpio_113_default_config
+		&pmx_init_gpio_114_default_config
+		&pmx_init_gpio_115_default_config
+		&pmx_init_gpio_116_default_config
+		&pmx_init_gpio_117_default_config
+		&pmx_init_gpio_118_default_config
+		&pmx_init_gpio_119_default_config
+		&pmx_init_gpio_120_default_config
+		&pmx_init_gpio_121_default_config
+		&pmx_init_gpio_122_default_config
+		&pmx_init_gpio_123_default_config
+		&pmx_init_gpio_124_default_config
+		&pmx_init_gpio_125_default_config
+		&pmx_init_gpio_126_default_config
+		&pmx_init_gpio_127_default_config
+		&pmx_init_gpio_129_default_config
+		&pmx_init_gpio_130_default_config
+		&pmx_init_gpio_131_default_config
+		&pmx_init_gpio_133_default_config
+		&pmx_init_gpio_134_default_config
+		&pmx_init_gpio_135_default_config
+		&pmx_init_gpio_136_default_config
+		&pmx_init_gpio_137_default_config
+		&pmx_init_gpio_138_default_config
+		&pmx_init_gpio_139_default_config
+		&pmx_init_gpio_140_default_config
+		&pmx_init_gpio_141_default_config
+		&pmx_init_gpio_142_default_config
+		&pmx_init_gpio_143_default_config
+		&pmx_init_gpio_144_default_config
+		&pmx_init_gpio_145_default_config>;
+
+	pmx_init_gpio_1_default {
+		qcom,pins = <&gp 1>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_1_default_config";
+		pmx_init_gpio_1_default_config:pmx_init_gpio_1_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_2_default {
+		qcom,pins = <&gp 2>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_2_default_config";
+		pmx_init_gpio_2_default_config:pmx_init_gpio_2_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_3_default {
+		qcom,pins = <&gp 3>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_3_default_config";
+		pmx_init_gpio_3_default_config:pmx_init_gpio_3_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_4_default {
+		qcom,pins = <&gp 4>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_4_default_config";
+		pmx_init_gpio_4_default_config:pmx_init_gpio_4_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_5_default {
+		qcom,pins = <&gp 5>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_5_default_config";
+		pmx_init_gpio_5_default_config:pmx_init_gpio_5_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_6_default {
+		qcom,pins = <&gp 6>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_6_default_config";
+		pmx_init_gpio_6_default_config:pmx_init_gpio_6_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_7_default {
+		qcom,pins = <&gp 7>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_7_default_config";
+		pmx_init_gpio_7_default_config:pmx_init_gpio_7_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_9_default {
+		qcom,pins = <&gp 9>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_9_default_config";
+		pmx_init_gpio_9_default_config:pmx_init_gpio_9_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_10_default {
+		qcom,pins = <&gp 10>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_10_default_config";
+		pmx_init_gpio_10_default_config:pmx_init_gpio_10_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_11_default {
+		qcom,pins = <&gp 11>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_11_default_config";
+		pmx_init_gpio_11_default_config:pmx_init_gpio_11_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_12_default {
+		qcom,pins = <&gp 12>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_12_default_config";
+		pmx_init_gpio_12_default_config:pmx_init_gpio_12_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-disable;
+			output-high;
+		};
+	};
+	pmx_init_gpio_13_default {
+		qcom,pins = <&gp 13>;
+		qcom,num-grp-pins = <1>;
+		label = "pmx_init_gpio_13_default_config";
+		pmx_init_gpio_13_default_config:pmx_init_gpio_13_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_15_default {
+		qcom,pins = <&gp 15>;
+		qcom,num-grp-pins = <1>;
+		label = "pmx_init_gpio_15_default_config";
+		pmx_init_gpio_15_default_config:pmx_init_gpio_15_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_17_default {
+		qcom,pins = <&gp 17>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_17_default_config";
+		pmx_init_gpio_17_default_config:pmx_init_gpio_17_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_18_default {
+		qcom,pins = <&gp 18>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_18_default_config";
+		pmx_init_gpio_18_default_config:pmx_init_gpio_18_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_19_default {
+		qcom,pins = <&gp 19>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_19_default_config";
+		pmx_init_gpio_19_default_config:pmx_init_gpio_19_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_20_default {
+		qcom,pins = <&gp 20>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_20_default_config";
+		pmx_init_gpio_20_default_config:pmx_init_gpio_20_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_21_default {
+		qcom,pins = <&gp 21>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_21_default_config";
+		pmx_init_gpio_21_default_config:pmx_init_gpio_21_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_22_default {
+		qcom,pins = <&gp 22>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_22_default_config";
+		pmx_init_gpio_22_default_config:pmx_init_gpio_22_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_23_default {
+		qcom,pins = <&gp 23>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <4>;
+		label = "pmx_init_gpio_23_default_config";
+		pmx_init_gpio_23_default_config:pmx_init_gpio_23_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_24_default {
+		qcom,pins = <&gp 24>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <5>;
+		label = "pmx_init_gpio_24_default_config";
+		pmx_init_gpio_24_default_config:pmx_init_gpio_24_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_25_default {
+		qcom,pins = <&gp 25>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_25_default_config";
+		pmx_init_gpio_25_default_config:pmx_init_gpio_25_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_26_default {
+		qcom,pins = <&gp 26>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_26_default_config";
+		pmx_init_gpio_26_default_config:pmx_init_gpio_26_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_27_default {
+		qcom,pins = <&gp 27>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_27_default_config";
+		pmx_init_gpio_27_default_config:pmx_init_gpio_27_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_28_default {
+		qcom,pins = <&gp 28>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_28_default_config";
+		pmx_init_gpio_28_default_config:pmx_init_gpio_28_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_29_default {
+		qcom,pins = <&gp 29>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_29_default_config";
+		pmx_init_gpio_29_default_config:pmx_init_gpio_29_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_30_default {
+		qcom,pins = <&gp 30>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_30_default_config";
+		pmx_init_gpio_30_default_config:pmx_init_gpio_30_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_31_default {
+		qcom,pins = <&gp 31>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_31_default_config";
+		pmx_init_gpio_31_default_config:pmx_init_gpio_31_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_32_default {
+		qcom,pins = <&gp 32>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_32_default_config";
+		pmx_init_gpio_32_default_config:pmx_init_gpio_32_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_33_default {
+		qcom,pins = <&gp 33>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_33_default_config";
+		pmx_init_gpio_33_default_config:pmx_init_gpio_33_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_34_default {
+		qcom,pins = <&gp 34>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_34_default_config";
+		pmx_init_gpio_34_default_config:pmx_init_gpio_34_default_config {
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_35_default {
+		qcom,pins = <&gp 35>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_35_default_config";
+		pmx_init_gpio_35_default_config:pmx_init_gpio_35_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_36_default {
+		qcom,pins = <&gp 36>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_36_default_config";
+		pmx_init_gpio_36_default_config:pmx_init_gpio_36_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_37_default {
+		qcom,pins = <&gp 37>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_37_default_config";
+		pmx_init_gpio_37_default_config:pmx_init_gpio_37_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_38_default {
+		qcom,pins = <&gp 38>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_38_default_config";
+		pmx_init_gpio_38_default_config:pmx_init_gpio_38_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_39_default {
+		qcom,pins = <&gp 39>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_39_default_config";
+		pmx_init_gpio_39_default_config:pmx_init_gpio_39_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_40_default {
+		qcom,pins = <&gp 40>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_40_default_config";
+		pmx_init_gpio_40_default_config:pmx_init_gpio_40_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_42_default {
+		qcom,pins = <&gp 42>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_42_default_config";
+		pmx_init_gpio_42_default_config:pmx_init_gpio_42_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_43_default {
+		qcom,pins = <&gp 43>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_43_default_config";
+		pmx_init_gpio_43_default_config:pmx_init_gpio_43_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_44_default {
+		qcom,pins = <&gp 44>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_44_default_config";
+		pmx_init_gpio_44_default_config:pmx_init_gpio_44_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_45_default {
+		qcom,pins = <&gp 45>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_45_default_config";
+		pmx_init_gpio_45_default_config:pmx_init_gpio_45_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
+	pmx_init_gpio_46_default {
+		qcom,pins = <&gp 46>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_46_default_config";
+		pmx_init_gpio_46_default_config:pmx_init_gpio_46_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
+	pmx_init_gpio_47_default {
+		qcom,pins = <&gp 47>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_47_default_config";
+		pmx_init_gpio_47_default_config:pmx_init_gpio_47_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
+	pmx_init_gpio_48_default {
+		qcom,pins = <&gp 48>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_48_default_config";
+		pmx_init_gpio_48_default_config:pmx_init_gpio_48_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+		};
+	};
+	pmx_init_gpio_53_default {
+		qcom,pins = <&gp 53>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_53_default_config";
+		pmx_init_gpio_53_default_config:pmx_init_gpio_53_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_54_default {
+		qcom,pins = <&gp 54>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_54_default_config";
+		pmx_init_gpio_54_default_config:pmx_init_gpio_54_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-high;
+		};
+	};
+	pmx_init_gpio_55_default {
+		qcom,pins = <&gp 55>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <4>;
+		label = "pmx_init_gpio_55_default_config";
+		pmx_init_gpio_55_default_config:pmx_init_gpio_55_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_56_default {
+		qcom,pins = <&gp 56>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <4>;
+		label = "pmx_init_gpio_56_default_config";
+		pmx_init_gpio_56_default_config:pmx_init_gpio_56_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_57_default {
+		qcom,pins = <&gp 57>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_57_default_config";
+		pmx_init_gpio_57_default_config:pmx_init_gpio_57_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_62_default {
+		qcom,pins = <&gp 62>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_62_default_config";
+		pmx_init_gpio_62_default_config:pmx_init_gpio_62_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_63_default {
+		qcom,pins = <&gp 63>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_63_default_config";
+		pmx_init_gpio_63_default_config:pmx_init_gpio_63_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_64_default {
+		qcom,pins = <&gp 64>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_64_default_config";
+		pmx_init_gpio_64_default_config:pmx_init_gpio_64_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_65_default {
+		qcom,pins = <&gp 65>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_65_default_config";
+		pmx_init_gpio_65_default_config:pmx_init_gpio_65_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_66_default {
+		qcom,pins = <&gp 66>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_66_default_config";
+		pmx_init_gpio_66_default_config:pmx_init_gpio_66_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_67_default {
+		qcom,pins = <&gp 67>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_67_default_config";
+		pmx_init_gpio_67_default_config:pmx_init_gpio_67_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_68_default {
+		qcom,pins = <&gp 68>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_68_default_config";
+		pmx_init_gpio_68_default_config:pmx_init_gpio_68_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_70_default {
+		qcom,pins = <&gp 70>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_70_default_config";
+		pmx_init_gpio_70_default_config:pmx_init_gpio_70_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_71_default {
+		qcom,pins = <&gp 71>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_71_default_config";
+		pmx_init_gpio_71_default_config:pmx_init_gpio_71_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_72_default {
+		qcom,pins = <&gp 72>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_72_default_config";
+		pmx_init_gpio_72_default_config:pmx_init_gpio_72_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_73_default {
+		qcom,pins = <&gp 73>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_73_default_config";
+		pmx_init_gpio_73_default_config:pmx_init_gpio_73_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_78_default {
+		qcom,pins = <&gp 78>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_78_default_config";
+		pmx_init_gpio_78_default_config:pmx_init_gpio_78_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-high;
+		};
+	};
+	pmx_init_gpio_79_default {
+		qcom,pins = <&gp 79>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_79_default_config";
+		pmx_init_gpio_79_default_config:pmx_init_gpio_79_default_config {
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_80_default {
+		qcom,pins = <&gp 80>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_80_default_config";
+		pmx_init_gpio_80_default_config:pmx_init_gpio_80_default_config {
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_81_default {
+		qcom,pins = <&gp 81>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_81_default_config";
+		pmx_init_gpio_81_default_config:pmx_init_gpio_81_default_config {
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_82_default {
+		qcom,pins = <&gp 82>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_82_default_config";
+		pmx_init_gpio_82_default_config:pmx_init_gpio_82_default_config {
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_83_default {
+		qcom,pins = <&gp 83>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_83_default_config";
+		pmx_init_gpio_83_default_config:pmx_init_gpio_83_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_84_default {
+		qcom,pins = <&gp 84>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_84_default_config";
+		pmx_init_gpio_84_default_config:pmx_init_gpio_84_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_87_default {
+		qcom,pins = <&gp 87>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_87_default_config";
+		pmx_init_gpio_87_default_config:pmx_init_gpio_87_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_88_default {
+		qcom,pins = <&gp 88>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <3>;
+		label = "pmx_init_gpio_88_default_config";
+		pmx_init_gpio_88_default_config:pmx_init_gpio_88_default_config {
+			drive-strength = <2>;
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_89_default {
+		qcom,pins = <&gp 89>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_89_default_config";
+		pmx_init_gpio_89_default_config:pmx_init_gpio_89_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_90_default {
+		qcom,pins = <&gp 90>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_90_default_config";
+		pmx_init_gpio_90_default_config:pmx_init_gpio_90_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_92_default {
+		qcom,pins = <&gp 92>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_92_default_config";
+		pmx_init_gpio_92_default_config:pmx_init_gpio_92_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_94_default {
+		qcom,pins = <&gp 94>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_94_default_config";
+		pmx_init_gpio_94_default_config:pmx_init_gpio_94_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_95_default {
+		qcom,pins = <&gp 95>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_95_default_config";
+		pmx_init_gpio_95_default_config:pmx_init_gpio_95_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_96_default {
+		qcom,pins = <&gp 96>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_96_default_config";
+		pmx_init_gpio_96_default_config:pmx_init_gpio_96_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_97_default {
+		qcom,pins = <&gp 97>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_97_default_config";
+		pmx_init_gpio_97_default_config:pmx_init_gpio_97_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_98_default {
+		qcom,pins = <&gp 98>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_98_default_config";
+		pmx_init_gpio_98_default_config:pmx_init_gpio_98_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_99_default {
+		qcom,pins = <&gp 99>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_99_default_config";
+		pmx_init_gpio_99_default_config:pmx_init_gpio_99_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_100_default {
+		qcom,pins = <&gp 100>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_100_default_config";
+		pmx_init_gpio_100_default_config:pmx_init_gpio_100_default_config {
+			bias-pull-up;
+		};
+	};
+	pmx_init_gpio_101_default {
+		qcom,pins = <&gp 101>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_101_default_config";
+		pmx_init_gpio_101_default_config:pmx_init_gpio_101_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+		};
+	};
+	pmx_init_gpio_102_default {
+		qcom,pins = <&gp 102>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_102_default_config";
+		pmx_init_gpio_102_default_config:pmx_init_gpio_102_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_104_default {
+		qcom,pins = <&gp 104>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_104_default_config";
+		pmx_init_gpio_104_default_config:pmx_init_gpio_104_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_105_default {
+		qcom,pins = <&gp 105>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_105_default_config";
+		pmx_init_gpio_105_default_config:pmx_init_gpio_105_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_106_default {
+		qcom,pins = <&gp 106>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_106_default_config";
+		pmx_init_gpio_106_default_config:pmx_init_gpio_106_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_107_default {
+		qcom,pins = <&gp 107>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_107_default_config";
+		pmx_init_gpio_107_default_config:pmx_init_gpio_107_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_108_default {
+		qcom,pins = <&gp 108>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_108_default_config";
+		pmx_init_gpio_108_default_config:pmx_init_gpio_108_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_109_default {
+		qcom,pins = <&gp 109>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_109_default_config";
+		pmx_init_gpio_109_default_config:pmx_init_gpio_109_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_110_default {
+		qcom,pins = <&gp 110>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_110_default_config";
+		pmx_init_gpio_110_default_config:pmx_init_gpio_110_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_111_default {
+		qcom,pins = <&gp 111>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_111_default_config";
+		pmx_init_gpio_111_default_config:pmx_init_gpio_111_default_config {
+			drive-strength = <2>;
+			bias-pull-up;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_113_default {
+		qcom,pins = <&gp 113>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_113_default_config";
+		pmx_init_gpio_113_default_config:pmx_init_gpio_113_default_config {
+			drive-strength = <2>;
+			bias-disable;
+			input-disable;
+			output-high;
+		};
+	};
+	pmx_init_gpio_114_default {
+		qcom,pins = <&gp 114>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_114_default_config";
+		pmx_init_gpio_114_default_config:pmx_init_gpio_114_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_115_default {
+		qcom,pins = <&gp 115>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_115_default_config";
+		pmx_init_gpio_115_default_config:pmx_init_gpio_115_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_116_default {
+		qcom,pins = <&gp 116>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_116_default_config";
+		pmx_init_gpio_116_default_config:pmx_init_gpio_116_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_117_default {
+		qcom,pins = <&gp 117>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_117_default_config";
+		pmx_init_gpio_117_default_config:pmx_init_gpio_117_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_118_default {
+		qcom,pins = <&gp 118>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_118_default_config";
+		pmx_init_gpio_118_default_config:pmx_init_gpio_118_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_119_default {
+		qcom,pins = <&gp 119>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_119_default_config";
+		pmx_init_gpio_119_default_config:pmx_init_gpio_119_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_120_default {
+		qcom,pins = <&gp 120>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_120_default_config";
+		pmx_init_gpio_120_default_config:pmx_init_gpio_120_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_121_default {
+		qcom,pins = <&gp 121>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_121_default_config";
+		pmx_init_gpio_121_default_config:pmx_init_gpio_121_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_122_default {
+		qcom,pins = <&gp 122>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_122_default_config";
+		pmx_init_gpio_122_default_config:pmx_init_gpio_122_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_123_default {
+		qcom,pins = <&gp 123>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_123_default_config";
+		pmx_init_gpio_123_default_config:pmx_init_gpio_123_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_124_default {
+		qcom,pins = <&gp 124>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_124_default_config";
+		pmx_init_gpio_124_default_config:pmx_init_gpio_124_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_125_default {
+		qcom,pins = <&gp 125>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_125_default_config";
+		pmx_init_gpio_125_default_config:pmx_init_gpio_125_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_126_default {
+		qcom,pins = <&gp 126>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_126_default_config";
+		pmx_init_gpio_126_default_config:pmx_init_gpio_126_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_127_default {
+		qcom,pins = <&gp 127>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_127_default_config";
+		pmx_init_gpio_127_default_config:pmx_init_gpio_127_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_129_default {
+		qcom,pins = <&gp 129>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_129_default_config";
+		pmx_init_gpio_129_default_config:pmx_init_gpio_129_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_130_default {
+		qcom,pins = <&gp 130>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_130_default_config";
+		pmx_init_gpio_130_default_config:pmx_init_gpio_130_default_config {
+			bias-disable;
+			input-disable;
+			output-low;
+		};
+	};
+	pmx_init_gpio_131_default {
+		qcom,pins = <&gp 131>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_131_default_config";
+		pmx_init_gpio_131_default_config:pmx_init_gpio_131_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_133_default {
+		qcom,pins = <&gp 133>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <2>;
+		label = "pmx_init_gpio_133_default_config";
+		pmx_init_gpio_133_default_config:pmx_init_gpio_133_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_134_default {
+		qcom,pins = <&gp 134>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_134_default_config";
+		pmx_init_gpio_134_default_config:pmx_init_gpio_134_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_135_default {
+		qcom,pins = <&gp 135>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <0>;
+		label = "pmx_init_gpio_135_default_config";
+		pmx_init_gpio_135_default_config:pmx_init_gpio_135_default_config {
+			drive-strength = <2>;
+			bias-pull-down;
+			input-enable;
+		};
+	};
+	pmx_init_gpio_136_default {
+		qcom,pins = <&gp 136>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_136_default_config";
+		pmx_init_gpio_136_default_config:pmx_init_gpio_136_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_137_default {
+		qcom,pins = <&gp 137>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_137_default_config";
+		pmx_init_gpio_137_default_config:pmx_init_gpio_137_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_138_default {
+		qcom,pins = <&gp 138>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_138_default_config";
+		pmx_init_gpio_138_default_config:pmx_init_gpio_138_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_139_default {
+		qcom,pins = <&gp 139>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_139_default_config";
+		pmx_init_gpio_139_default_config:pmx_init_gpio_139_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_140_default {
+		qcom,pins = <&gp 140>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_140_default_config";
+		pmx_init_gpio_140_default_config:pmx_init_gpio_140_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_141_default {
+		qcom,pins = <&gp 141>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_141_default_config";
+		pmx_init_gpio_141_default_config:pmx_init_gpio_141_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_142_default {
+		qcom,pins = <&gp 142>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_142_default_config";
+		pmx_init_gpio_142_default_config:pmx_init_gpio_142_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_143_default {
+		qcom,pins = <&gp 143>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_143_default_config";
+		pmx_init_gpio_143_default_config:pmx_init_gpio_143_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_144_default {
+		qcom,pins = <&gp 144>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_144_default_config";
+		pmx_init_gpio_144_default_config:pmx_init_gpio_144_default_config {
+			bias-disable;
+		};
+	};
+	pmx_init_gpio_145_default {
+		qcom,pins = <&gp 145>;
+		qcom,num-grp-pins = <1>;
+		qcom,pin-func = <1>;
+		label = "pmx_init_gpio_145_default_config";
+		pmx_init_gpio_145_default_config:pmx_init_gpio_145_default_config {
+			bias-disable;
+		};
+	};
+};
