@@ -1,0 +1,4 @@
+# Editor generated files
+*.save
+BIDE*
+.tags*
