@@ -1,0 +1,36 @@
+#
+# USB Power Delivery driver configuration
+#
+menu "USB Power Delivery"
+
+config USB_PD
+	def_bool n
+
+config USB_PD_POLICY
+	tristate "USB Power Delivery Protocol and Policy Engine"
+	depends on EXTCON
+	depends on DUAL_ROLE_USB_INTF
+	select USB_PD
+	help
+          Say Y here to enable USB PD protocol and policy engine.
+
+config QPNP_USB_PDPHY
+	tristate "QPNP USB Power Delivery PHY"
+	depends on SPMI
+	help
+          Say Y here to enable QPNP USB PD PHY peripheral driver
+	  which communicates over the SPMI bus. The is used to handle
+	  the PHY layer communication of the Power Delivery stack.
+
+# Jin.wang added here to enable different usbpd logs level
+config USB_PD_LOG_LVL
+	int "USBPD Log level(0,3)"
+	range 0 3
+	default 1
+	help
+          enable different log level for usbpd debug. 0 for no logs,
+          1 for error logs only, 2 for debug logs only(no error log),
+          3 for all logs.
+# Jin.wang added done.
+
+endmenu

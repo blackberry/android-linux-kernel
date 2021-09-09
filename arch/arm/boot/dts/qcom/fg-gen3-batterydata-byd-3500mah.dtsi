@@ -1,0 +1,83 @@
+/* Copyright (c) 2016-2017, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+qcom,3300156_tcl_byd_3500mah {
+	/* #3300156_TCL_AthenaBYD_3500mAh_averaged_MasterSlave_Mar19th2018*/
+	qcom,default-battery-type;
+	qcom,max-voltage-uv = <4402500>;
+	qcom,nom-batt-capacity-mah = <3500>;
+	qcom,fg-cc-cv-threshold-mv = <4390>;
+	qcom,fastchg-current-ma = <3000>;
+	qcom,batt-id-kohm = <18>;
+	qcom,battery-beta = <3435>;
+	qcom,battery-type = "byd-3500mah";
+	qcom,checksum = <0x8554>;
+	qcom,gui-version = "PM660GUI - 0.0.0.45";
+	qcom,fg-profile-data = [
+		 B9 1E 9C 06
+		 5E 03 1B 07
+		 CA 1C 4F 02
+		 F9 0C 8E 0B
+		 DB 17 D8 23
+		 48 44 79 5A
+		 64 00 00 00
+		 10 00 00 00
+		 00 00 5D C5
+		 43 C5 93 CA
+		 1B 00 08 00
+		 19 E3 AD 07
+		 A5 05 70 01
+		 72 EC 76 13
+		 45 E5 09 33
+		 2A 06 09 20
+		 27 00 14 00
+		 DB 1F 7F 05
+		 80 0A A5 FC
+		 CB 1C E9 02
+		 1C 0C 18 12
+		 8F 18 B0 23
+		 1A 44 DA 5A
+		 6C 00 00 00
+		 0E 00 00 00
+		 00 00 66 D5
+		 B7 C3 58 CA
+		 14 00 00 00
+		 A6 EB AD 07
+		 80 06 FD F2
+		 AC 06 06 02
+		 C6 02 33 23
+		 C8 33 CC FF
+		 07 10 00 00
+		 65 0D 66 46
+		 14 00 40 00
+		 77 01 0A FA
+		 FF 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+		 00 00 00 00
+	];
+};
