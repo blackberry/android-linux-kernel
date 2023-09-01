@@ -1,0 +1,19 @@
+menu "Products selection"
+config TCT_SDM660_COMMON
+	bool "SDM660 TCT COMMON CONFIG"
+	depends on ARCH_SDM660
+	help
+	  Support for TCT common device configration.
+
+config TCT_SDM660_ATHENA
+	bool "SDM660 TCT ATHENA"
+	depends on ARCH_SDM660
+	help
+	  Support for TCT ATHENA device.
+
+config TCT_SDM636_LUNA
+	bool "SDM636 TCT LUNA"
+	depends on ARCH_SDM660
+	help
+	  Support for TCT LUNA device.
+endmenu
