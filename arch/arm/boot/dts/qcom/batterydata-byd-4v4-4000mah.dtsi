@@ -1,0 +1,64 @@
+/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+qcom,2887645_tcl_krypton_3860mah_averaged_masterslave_apr5th2017 {
+	/* #2887645_TCL_Krypton_3860mAh_averaged_MasterSlave_Apr5th2017*/
+	qcom,default-battery-type;
+	qcom,max-voltage-uv = <4400000>;
+	qcom,nom-batt-capacity-mah = <3860>;
+	qcom,batt-id-kohm = <18>;
+	qcom,battery-beta = <3380>;
+	qcom,thermal-coefficients = [da 86 f0 50 08 3c];
+	qcom,fastchg-current-ma = <3000>;
+	qcom,battery-type = "BYD";
+	qcom,fg-cc-cv-threshold-mv = <4390>;
+	qcom,chg-rslow-comp-c1 = <5583649>;
+	qcom,chg-rslow-comp-c2 = <13050860>;
+	qcom,chg-rs-to-rslow = <1035668>;
+	qcom,chg-rslow-comp-thr = <0xC9>;
+	qcom,checksum = <0x939C>;
+	qcom,gui-version = "PMI8950GUI - 2.0.0.16";
+	qcom,fg-profile-data = [
+		 D7 83 59 7C 
+		 7C 80 A3 75 
+		 50 83 48 5A 
+		 BE 80 9E 8C 
+		 32 82 05 99 
+		 3C B7 FD C2 
+		 58 17 13 88 
+		 A6 7E 11 82 
+		 43 7C 46 83 
+		 CA 72 57 7C 
+		 AB 68 71 82 
+		 32 98 36 B6 
+		 34 C2 5E 11 
+		 8F 0F F8 59 
+		 14 70 71 FD 
+		 65 3E E0 45 
+		 C2 43 00 00 
+		 61 47 98 2A 
+		 FE 3A 00 00 
+		 00 00 00 00 
+		 00 00 00 00 
+		 2E 6A 44 69 
+		 48 78 25 8A 
+		 C9 6F ED 68 
+		 21 72 B9 83 
+		 65 6D C8 63 
+		 A3 85 45 B2 
+		 1B 40 68 17 
+		 66 A0 71 0C 
+		 28 00 FF 36 
+		 F0 11 30 03 
+		 00 00 00 0C 
+	];
+};

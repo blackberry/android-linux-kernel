@@ -1,0 +1,51 @@
+/* Copyright (C) 2016 BlackBerry Limited. All rights reserved.
+ * Copyright (c) 2014, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/*
+ *  This DTSI is used for content that is common to all revisions of Argon
+ */
+
+/* HWFeatures */
+/ {
+	/* Attributes must be a string.
+	 * Attributes name are limited to 31B.
+	 * We append ro.hwf to each attributes and add a .
+	 * for delimiter between each level of attributes.
+	 *
+	 * So the following entry :
+	 * hwfeatures_node {
+	 *    test1 {
+	 *      test2 = "bla";
+	 *    }
+	 * }
+	 *
+	 * Will translate into an attribute name ro.hwf.test1.test2
+	 */
+	hwfeatures_node {
+		compatible = "hwfeatures";
+		/*
+		 * Common NFC properties for all platforms
+		 * Platform dependent properties with same property names override
+		 * common properties
+		 */
+		nfc {
+			devnode = "/dev/nq-nci";
+			hal_module_ids = "nfc_nci.pn54x";
+			lib_module_ids = "libnfc-nci";
+			config_base = "libnfc-brcm";
+			/* These two properties are device specific */
+			tuning_config = "argon";
+			allow_signed_fw = "yes";
+		};
+	};
+};

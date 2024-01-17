@@ -1,0 +1,61 @@
+/* Copyright (C) 2016 BlackBerry Limited. All rights reserved.
+ * Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+/dts-v1/;
+
+#include "msm8953.dtsi"
+#include "msm-pmi8950.dtsi"
+#include "msm8953-mtp.dtsi"
+#include "msm8953-pmi8950.dtsi"
+#include "msm8953-camera-sensor-mtp.dtsi"
+
+#include "msm8953-bbry-bbb100-v1.dtsi"
+#include "msm8953-bbry-bbb100-common.dtsi"
+
+/ {
+	model = "MSM 8953 BBB100 V1";
+	compatible = "qcom,msm8953-mtp", "qcom,msm8953", "qcom,mtp";
+
+    /* For the mini-sw with stock bootchain, the board-id is in the format of <0xSSPMPmPH 0x0> where:
+         SS = Subtype           : R192 = 0xc0 (192 in hex), R193 = 0xc1, R194 = 0xc2
+         PM = Platform Major    : Used as pcb_rev (in hex), must match the pcb_rev in the HWI files
+         Pm = Platform Minor    : Used as pop_rev (in hex), must match the pop_rev in the HWI files
+         PH = Platform Hardware : Must be set to 0x8 (MTP)
+    */
+	qcom,board-id = <0xF2409881 0x00010100>, /* R192 (Global)     - BBB100-1 - bbb100global */
+            <0xc0000008 0>,                  /* R192 (Global)     - same as above, but for mini-sw */
+            <0xF24098B2 0x00010100>,         /* R193 (EMEA)       - BBB100-2 - bbb100emea   */
+            <0xc1000008 0>,                  /* R193 (EMEA)       - same as above, but for mini-sw */
+            <0xF24098B1 0x00010100>,         /* R194 (US Carrier) - BBB100-3 - bbb100usa    */
+            <0xc2000008 0>,                  /* R194 (US Carrier) - same as above, but for mini-sw */
+            <0xF2409870 0x00010100>,         /* R195 (CN)         - BBB100-4 - bbb100cn     */
+            <0xc3000008 0>,                  /* R195 (CN)         - same as above, but for mini-sw */
+            <0xF24098A6 0x00010100>,         /* R198 (DSCN)       - BBB100-5 - bbb100dscn   */
+            <0xc6000008 0>,                  /* R198 (DSCN)       - same as above, but for mini-sw */
+            <0xF24098CD 0x00010100>,         /* R199 (japan)      - BBB100-6 - bbb100japan   */
+            <0xc7000008 0>,                  /* R199 (japan)      - same as above, but for mini-sw */
+            <0xF24098DC 0x00010100>,         /* R200 (india)      - BBB100-7 - bbb100india   */
+            <0xc8000008 0>;                  /* R200 (india)      - same as above, but for mini-sw */
+            /* Temp solution for the Krypton */
+	    /* <0x2000b 0>,                      Fallback to QC QRD */
+            /* <8 0>;                            Fallback to QC mtp */
+	qcom,pmic-id = <0x010016 0x010011 0x0 0x0>;
+
+	hwfeatures {
+		mechanical {
+			rev = "M1";
+		};
+	};
+
+};
+

@@ -1,0 +1,4 @@
+config ANALOGIX_OHIO
+	tristate "Analogix Type-C interface support"
+	help
+		Analogix type-c interface is a  chip support USB PD protocol device

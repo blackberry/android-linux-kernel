@@ -1,0 +1,13 @@
+menu "Products selection"
+config TCT_COMMON
+    bool "OVERALL TCT COMMON CONFIG"
+    depends on ARCH_MSM
+    help
+      Support for TCT common device configration.
+
+config TCT_MSM8940_PEPITO
+    bool "MSM8940 TCT PRODUCT PEPITO"
+    depends on ARCH_MSM8937
+    help
+      Support for TCT PEPITO device.
+endmenu

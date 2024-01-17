@@ -1,0 +1,63 @@
+/* Copyright (c) 2015-2016, The Linux Foundation. All rights reserved.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License version 2 and
+ * only version 2 as published by the Free Software Foundation.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ */
+
+qcom,2718233_mercuryatl_3440mah_averaged_masterslave_dec19th2016 {
+	/* #2718233_MercuryATL_3440mAh_averaged_MasterSlave_Dec19th2016*/
+	qcom,max-voltage-uv = <4400000>;
+	qcom,nom-batt-capacity-mah = <3440>;
+	qcom,batt-id-kohm = <240>;
+	qcom,battery-beta = <3435>;
+	qcom,thermal-coefficients = [c2 86 bb 50 cf 37];
+	qcom,fastchg-current-ma = <3000>;
+	qcom,battery-type = "Hermes";
+	qcom,fg-cc-cv-threshold-mv = <4390>;
+	qcom,chg-rslow-comp-c1 = <3107839>;
+	qcom,chg-rslow-comp-c2 = <4475057>;
+	qcom,chg-rs-to-rslow = <1093893>;
+	qcom,chg-rslow-comp-thr = <0xA6>;
+	qcom,checksum = <0x7480>;
+	qcom,gui-version = "PMI8950GUI - 2.0.0.16";
+	qcom,fg-profile-data = [
+		 DC 83 97 7C 
+		 DB 80 BC 76 
+		 63 83 6C 6F 
+		 16 89 49 94 
+		 3E 82 84 99 
+		 8E BC 16 C9 
+		 55 0F F4 83 
+		 02 7D 13 81 
+		 01 77 5D 83 
+		 72 51 72 82 
+		 A4 8E 52 82 
+		 A1 99 F1 BC 
+		 DD C9 54 0E 
+		 9D 0D 45 59 
+		 14 70 5D FD 
+		 13 34 08 3E 
+		 FD 1E 00 00 
+		 B6 45 FC 1B 
+		 1E 2A 00 00 
+		 00 00 00 00 
+		 00 00 00 00 
+		 6F 70 B2 6B 
+		 39 72 AA 88 
+		 D9 6F 23 62 
+		 18 61 E0 7A 
+		 C7 6D 0F 5A 
+		 FF 7D 34 A8 
+		 15 88 68 F2 
+		 65 A0 71 0C 
+		 28 00 FF 36 
+		 F0 11 30 03 
+		 00 00 00 0C 
+	];
+};

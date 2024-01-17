@@ -1,0 +1,3 @@
+obj-$(CONFIG_FINGERPRINT_GOODIX_GF5216) += goodix/
+
+

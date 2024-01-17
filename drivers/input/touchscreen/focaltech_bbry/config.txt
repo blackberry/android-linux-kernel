@@ -1,0 +1,258 @@
+/*************** Focaltech Touch Driver Config ***************/
+
+驅動版本： V2.0.0
+發佈日期： 2016-05-18
+
+/*************** No.1 ***************/
+NAME: str_fts_ic_name
+NOTE: 選擇使用的IC類型
+FILE: focaltech_flash.c
+#define FTS_IC_NAME        FT8716
+
+/*************** No.2 ***************/
+NAME: str_i2c_name_for_board_file
+NOTE: 用於板檔結構的I2c Client名字
+FILE: focaltech_core.c
+#define FOCALTECH_TS_NAME_FOR_BOARD        focaltech_ts
+
+/*************** No.3 ***************/
+NAME: str_i2c_name_for_dts_file
+NOTE: 用於DTS檔結構的I2C_Client名字
+FILE: focaltech_core.c
+#define FOCALTECH_TS_NAME_FOR_DTS        focaltech,focaltech_ts
+
+/*************** No.4 ***************/
+NAME: int_fts_i2c_comm_mode
+NOTE: I2C通信方式
+FILE: focaltech_core.c
+#define FTS_IIC_COMM_MODE        0
+
+/*************** No.5 ***************/
+NAME: int_fts_dma_en
+NOTE: DMA功能之使能開關
+FILE: focaltech_i2c_communication.c
+#define FTS_DMA_EN        0
+
+/*************** No.6 ***************/
+NAME: int_fts_dma_buff_size
+NOTE: DMA BUFFER 大小(byte)
+FILE: focaltech_i2c_communication.c
+#define FTS_DMA_BUFF_SIZE        128
+
+/*************** No.7 ***************/
+NAME: int_Platform_Data_Type
+NOTE: 平臺資料來源於
+FILE: focaltech_platform_data.c
+#define PLATFORM_DATA_TYPE        2
+
+/*************** No.8 ***************/
+NAME: str_platform_data_irq_gpio
+NOTE: 中斷使用的GPIO介面
+FILE: focaltech_platform_data.c
+#define PLATFORM_DATA_IRQ_GPIO        EXYNOS4_GPX1(6)
+
+/*************** No.9 ***************/
+NAME: str_platform_data_reset_gpio
+NOTE: 复位使用的GPIO介面
+FILE: focaltech_platform_data.c
+#define PLATFORM_DATA_RESET_GPIO        EXYNOS4_GPX1(7)
+
+/*************** No.10 ***************/
+NAME: int_platform_data_x_resolution
+NOTE: TP X軸最大座標值
+FILE: focaltech_platform_data.c
+#define PLATFORM_DATA_X_RESOLUTION        1280
+
+/*************** No.11 ***************/
+NAME: int_platform_data_y_resolution
+NOTE: TP Y軸最大座標值
+FILE: focaltech_platform_data.c
+#define PLATFORM_DATA_Y_RESOLUTION        1280
+
+/*************** No.12 ***************/
+NAME: int_report_protocol
+NOTE: 觸控式螢幕設備之多點觸摸協定
+FILE: focaltech_report.c
+#define REPORT_PROTOCOL_OF_INPUT_DEVICE        1
+
+/*************** No.13 ***************/
+NAME: int_queue_mode
+NOTE: 處理觸摸事件的佇列方式
+FILE: focaltech_report.c
+#define QUEUE_MODE_OF_TOUCH_HANDLE        0
+
+/*************** No.14 ***************/
+NAME: int_fts_force_touch_en
+NOTE: Force Touch功能之使能開關
+FILE: focaltech_report.c
+#define FTS_FORCE_TOUCH_EN        0
+
+/*************** No.15 ***************/
+NAME: int_fts_report_pressure_en
+NOTE: 上報pressure值功能之使能開關
+FILE: focaltech_report.c
+#define FTS_REPORT_PRESSURE_EN        0
+
+/*************** No.16 ***************/
+NAME: int_fts_max_touch_points
+NOTE: 最大上報觸摸點個數
+FILE: focaltech_report.c
+#define FTS_MAX_TOUCH_POINTS        5
+
+/*************** No.17 ***************/
+NAME: int_fts_key_enable
+NOTE: 是否使用按鍵功能之使能開關
+FILE: focaltech_report.c
+#define FTS_KEY_EN        0
+
+/*************** No.18 ***************/
+NAME: str_fts_key_1
+NOTE: 按鍵1之按鍵值
+FILE: focaltech_report.c
+#define FTS_KEY_1        KEY_BACK
+
+/*************** No.19 ***************/
+NAME: str_fts_key_2
+NOTE: 按鍵2之按鍵值
+FILE: focaltech_report.c
+#define FTS_KEY_2        KEY_HOMEPAGE
+
+/*************** No.20 ***************/
+NAME: str_fts_key_3
+NOTE: 按鍵3之按鍵值
+FILE: focaltech_report.c
+#define FTS_KEY_3        KEY_MENU
+
+/*************** No.21 ***************/
+NAME: int_fts_key_1_x_pos
+NOTE: 按鍵1之X座標值
+FILE: focaltech_report.c
+#define FTS_KEY_1_X_POS        4093
+
+/*************** No.22 ***************/
+NAME: int_fts_key_2_x_pos
+NOTE: 按鍵2之X座標值
+FILE: focaltech_report.c
+#define FTS_KEY_2_X_POS        4094
+
+/*************** No.23 ***************/
+NAME: int_fts_key_3_x_pos
+NOTE: 按鍵3之X座標值
+FILE: focaltech_report.c
+#define FTS_KEY_3_X_POS        4095
+
+/*************** No.24 ***************/
+NAME: int_fts_key_all_y_pos
+NOTE: 所有按鍵之Y座標值
+FILE: focaltech_report.c
+#define FTS_KEY_ALL_Y_POS        4096
+
+/*************** No.25 ***************/
+NAME: int_fts_monitor_en
+NOTE: 觸摸資料監視功能之使能開關
+FILE: focaltech_monitor.c
+#define FTS_MONITOR_EN        0
+
+/*************** No.26 ***************/
+NAME: int_fts_monitor_wait_time
+NOTE: 距離最後一次中斷處理的複查時間(單位：ms)
+FILE: focaltech_monitor.c
+#define FTS_MONITOR_WAIT_TIME        200
+
+/*************** No.27 ***************/
+NAME: int_fts_monitor_debug_en
+NOTE: 觸摸資料顯示調試功能之使能開關
+FILE: focaltech_monitor.c
+#define FTS_MONITOR_DEBUG_EN        0
+
+/*************** No.28 ***************/
+NAME: str_i_file_1
+NOTE: 第1家供應商升級FW所用的.i文件
+FILE: focaltech_flash.c
+#define FTS_BUFFER_I_FILE_1        i_file1/sample_file.i
+
+/*************** No.29 ***************/
+NAME: str_i_file_2
+NOTE: 第2家供應商升級FW所用的.i文件
+FILE: focaltech_flash.c
+#define FTS_BUFFER_I_FILE_2        i_file2/sample_file.i
+
+/*************** No.30 ***************/
+NAME: str_i_file_3
+NOTE: 第3家供應商升級FW所用的.i文件
+FILE: focaltech_flash.c
+#define FTS_BUFFER_I_FILE_3        i_file3/sample_file.i
+
+/*************** No.31 ***************/
+NAME: str_pram_boot_i_file
+NOTE: 升級FW所用的Pram Boot檔（.i文件）
+FILE: focaltech_flash.c
+#define FTS_PRAM_BOOT_FILE        pramboot/sample_file.i
+
+/*************** No.32 ***************/
+NAME: int_auto_upgrade_fw_en
+NOTE: 啟動時自動升級FW功能之使能開關
+FILE: focaltech_flash.c
+#define FTS_FLASH_AUTO_UPGRADE_FW_EN        0
+
+/*************** No.33 ***************/
+NAME: int_use_i_files_num
+NOTE: 支援的升級檔個數
+FILE: focaltech_flash.h
+#define USE_I_FILES_NUMBER        1
+
+/*************** No.34 ***************/
+NAME: int_wendor_id_1
+NOTE: 第1家供應商的Wendor ID
+FILE: focaltech_flash.h
+#define USE_I_FILE_1_BY_WENDOR_ID_1        0x01
+
+/*************** No.35 ***************/
+NAME: int_wendor_id_2
+NOTE: 第2家供應商的Wendor ID
+FILE: focaltech_flash.h
+#define USE_I_FILE_2_BY_WENDOR_ID_2        0x02
+
+/*************** No.36 ***************/
+NAME: int_wendor_id_3
+NOTE: 第3家供應商的Wendor ID
+FILE: focaltech_flash.h
+#define USE_I_FILE_3_BY_WENDOR_ID_3        0x03
+
+/*************** No.37 ***************/
+NAME: int_fts_malloc_type
+NOTE: 記憶體申請使用的函數
+FILE: focaltech_test_global.c
+#define FTS_MALLOC_TYPE        1
+
+/*************** No.38 ***************/
+NAME: int_fts_max_tx_num
+NOTE: Tx通道（或X通道）最大個數
+FILE: focaltech_test_detail_threshold.h
+#define TX_NUM_MAX        40
+
+/*************** No.39 ***************/
+NAME: int_fts_max_rx_num
+NOTE: Rx通道（或Y通道）最大個數
+FILE: focaltech_test_detail_threshold.h
+#define RX_NUM_MAX        40
+
+/*************** No.40 ***************/
+NAME: int_fts_auto_reset_en
+NOTE: 自動復位機制之使能開關
+FILE: focaltech_auto_reset.c
+#define FTS_AUTO_RESET_EN        0
+
+/*************** No.41 ***************/
+NAME: int_AUTO_RESET_WAIT_TIME
+NOTE: 檢查是否需要自動復位的間隔時間(單位：ms)
+FILE: focaltech_auto_reset.c
+#define AUTO_RESET_WAIT_TIME        2000
+
+/*************** No.42 ***************/
+NAME: int_fts_gestrue_en
+NOTE: 手勢功能之使能開關
+FILE: focaltech_gesture.c
+#define FTS_GESTRUE_EN        0
+
+

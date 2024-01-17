@@ -1,0 +1,21 @@
+#
+# Focaltech touch driver configuration
+#
+#
+# STMicroelectronics TOUCH driver configuration
+#
+config TOUCHSCREEN_FOCALTECH_ALL
+		bool "FOCAL based touchscreen"
+		depends on I2C
+		help
+			Say Y here if you have a touchscreen interface using the 
+			FOCAL controller, and your board-specific
+			setup cod includes that in its table of i2c devices.
+
+config TOUCHSCREEN_FOCALTECH_TDDI
+		bool "FOCAL based touchscreen"
+		depends on I2C
+		help
+			Say Y here if you have a touchscreen interface using the 
+			FOCAL controller, and your board-specific
+			setup cod includes that in its table of i2c devices.

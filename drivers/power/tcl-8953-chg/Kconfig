@@ -1,0 +1,10 @@
+config QPNP_SMBCHARGER_TCL
+	tristate "QPNP SMB Charger driver for TCL older platform"
+	depends on SPMI || MSM_SPMI
+	depends on OF_SPMI
+	help
+	  Say Y here to enable the dual path switch mode battery charger which
+	  supports USB detection and battery charging up to 3A.
+	  The driver also offers relevant information to userspace via the
+	  power supply framework.
+

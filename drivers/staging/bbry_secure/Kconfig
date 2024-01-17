@@ -1,0 +1,202 @@
+#start: BBSECURE_BUILD
+
+# Copyright (C) 2018 BlackBerry Limited
+#
+# This software is licensed under the terms of the GNU General Public
+# License version 2, as published by the Free Software Foundation, and
+# may be copied, distributed, and modified under those terms.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# Note:
+# This Kconfig is the entry point for blackberry feature configurations.
+# Each config should follow the BBSECURE_<FEATURE_NAME> convention.
+# For details please refer to blackberry tagging guideline.
+
+menu "Blackberry feature selection"
+
+config BBSECURE_LSM_TEST_SUPPORT
+	bool "Blackberry LSM test support"
+	default n
+	help
+	  Say 'Y' if you would like to support the LSM tests of Blackberry,
+	  'N' otherwise.
+
+config BBSECURE_MMAP_MIN_ADDR_WRITABLE
+	bool "Make /proc/sys/vm/mmap_min_addr read-only"
+	depends on MMU
+	default n
+	help
+	  Makes the /proc/sys/vm/mmap_min_addr writable. Defaults to N.
+
+config BBSECURE_UEVENT_HELPER_WRITABLE
+	bool "Make uevent_helper writable"
+	depends on UEVENT_HELPER
+	default n
+	help
+	  Makes /proc/sys/kernel/hotplug and /sys/kernel/uevent_helper
+	  writable. Defaults to N.
+
+config BBSECURE_CORE_PATTERN_DEFAULT
+	string "Default core pattern"
+	depends on COREDUMP
+	default "core"
+	help
+	  Default value for /proc/sys/kernel/core_pattern.
+
+config BBSECURE_CORE_PATTERN_WRITABLE
+	bool "Makes core_pattern writable"
+	depends on COREDUMP
+	default n
+	help
+	  Makes /proc/sys/kernel/core_pattern writable. Defaults to N.
+
+config BBSECURE_MODULE_MODPROBE_DEFAULT
+	string "Module modprobe default command"
+	depends on MODULES
+	default ""
+	help
+	  Modprobe default command to be executed on kernel module request.
+	  Defaults to empty.
+
+config BBSECURE_MODULE_MODPROBE_WRITABLE
+	bool "Makes /proc/sys/kernel/modprobe writable"
+	depends on MODULES
+	default n
+	help
+	  Enables writing to /proc/sys/kernel/modprobe. Defaults to N.
+
+config BBSECURE_POWEROFF_CMD_DEFAULT
+	string "Default poweroff_cmd to execute"
+	default ""
+	help
+	  Default command string to execute for poweroff_cmd. Defaults to empty.
+
+config BBSECURE_POWEROFF_CMD_WRITABLE
+	bool "Make /proc/sys/kernel/poweroff_cmd writable"
+	default n
+	depends on POWEROFF_CMD
+	help
+	  Makes /proc/sys/kernel/poweroff_cmd writable. Defaults to N.
+
+config BBSECURE_HEAP_RAND_PROCFS_WRITABLE
+	bool "Make /proc/sys/kernel/randomize_va_space writable"
+	depends on MMU
+	default n
+	help
+	  Makes the /proc/sys/kernel/randomize_va_space writable. Defaults to N.
+
+config BBSECURE_O_BENEATH
+	bool "Limits files to be opened must be at or under the direcotry where open is invoked"
+	default y
+	help
+	  Say 'Y' if you would like to limit files to be opened must be
+	  at or under the direcotry where open is invoked. 'N' otherwise.
+
+config BBSECURE_O_NOSYMLINK
+	bool "Disallow symlinks in the path of the file to be opened"
+	default y
+	help
+	  Say 'Y' if you would like to disallow symlinks in the path of the files
+	  to be opened. 'N' otherwise.
+
+config BBSECURE_VENDOR
+	bool "Pull in Blackberry specific kernel modules outside of kernel source tree"
+	default y
+	help
+	  Say 'Y' if you need Blackberry specific kernel modules outside of kernel
+	  source tree. 'N' otherwise.
+
+#start: BBSECURE_PROTECTED_VARS
+config DOES_NOT_RUN
+	bool
+	---help---
+	 This option is selected by other debugging kernel configuration options
+	 that would cause the built kernel to be non-bootable.  In particular,
+	 it is used by build options designed to verify source
+
+config BBSECURE_PROTECTED_VARS
+	bool "Move critical kernel variables to read-only memory"
+	default y
+	help
+	  This option moves certain kernel variables into read-only memory,
+	  enforcing that updates to the variables be arbitrated.  It is
+	  designed to resist accidental or malicious modifications to
+	  highly-sensitive kernel variables.
+
+	  If unsure, say N
+
+config BBSECURE_PROTECTED_VARS_CONST
+	bool "Define protected variables as const"
+	depends on DEBUG_KERNEL
+	depends on BBSECURE_PROTECTED_VARS
+	select DOES_NOT_RUN
+	---help---
+	  This declares all proteced variables as const to catch assignments at
+	  the compile phase.  Note that because the compiler may optimize const
+	  variables differently by assuming they never change, this setting will
+	  also enable the DOES_NOT_RUN kernel configuration setting, preventing
+	  the creation of bootable kernel images.
+
+	  If unsure, say N
+#end: BBSECURE_PROTECTED_VARS
+
+config BBSECURE_SECURITY_SELINUX_DEVELOP_ENFORCE
+	bool "NSA SELinux Development Support via debug token"
+	depends on SECURITY_SELINUX
+	default n
+	help
+	  This option allows the selinux enforce=0|1 on the kernel
+	  command line to remain active so that the device can be booted
+	  in permissive mode if a debug token exists. The mode cannot
+	  be toggled at runtime. With this option enabled the kernel
+	  will start in enforcing mode unless you specify enforcing=0 on
+	  the kernel command line
+
+config BBSECURE_SECURITY_SELINUX_AVD_PERMISSIVE
+	bool "NSA SELinux AVD Permissive Support"
+	depends on SECURITY_SELINUX
+	default n
+	help
+	  This enables the support for the AVD_FLAGS_PERMISSIVE
+	  flag. If set to no, then local policy permissibility will
+	  not be allowed.
+
+config BBSECURE_SDBASE
+	bool "BlackBerry Base SDCardFS Support"
+	depends on SDCARD_FS
+	default y
+	help
+	  Sdcardfs support for basic BlackBerry features to meet Google's CDD
+	  requirements.
+
+config BBSECURE_SDAFW
+	bool "BlackBerry Android for Work support for SDCardFS"
+	depends on SDCARD_FS && BBSECURE_SDBASE
+	default y
+	help
+	  Android for Work support for removable devices including SD cards and
+	  USB OTG.
+
+source security/pathtrust/Kconfig
+
+config BBSECURE_BIDE
+	bool "BlackBerry Integrity Detection support"
+	default y
+	help
+	  Say 'Y' if you would like to support BlackBerry Integrity Detection,
+	  'N' otherwise.
+
+config BBSECURE_ADBAFW
+	bool "BlackBerry Android for Work support for ADB"
+	depends on SDCARD_FS && BBSECURE_SDBASE
+	default y
+	help
+	  Android for Work support for ADB.
+
+endmenu
+
+#end: BBSECURE_BUILD
