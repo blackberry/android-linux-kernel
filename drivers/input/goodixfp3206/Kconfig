@@ -1,0 +1,5 @@
+config GOODIX_FINGERPRINT_GF3206
+	tristate "generic goodix fingerprint driver"
+	default y
+	help
+	add support for goodix fingerprint driver.
